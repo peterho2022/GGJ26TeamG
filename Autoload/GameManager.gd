@@ -2,7 +2,8 @@ extends Node
 
 var level_list: Array[String] = [
 	"res://Scenes/GameScene.tscn",
-	"res://Scenes/TestLevel2.tscn",
+	"res://Scenes/GameScene.tscn",
+	"res://Scenes/GameScene.tscn",
 ]
 
 signal on_tape_start
@@ -76,19 +77,6 @@ func add_tape_length(v: float):
 	
 func reset_tape_length():
 	total_tape_length = 0.0
-	
-func calculate_rank() -> String:
-	# 依照你的規則：S(<=5), A(<=7), B(<=10), C(<=14), D(>14)
-	if total_tape_length <= 5:
-		return "S"
-	elif total_tape_length <= 7:
-		return "A"
-	elif total_tape_length <= 10:
-		return "B"
-	elif total_tape_length <= 14:
-		return "C"
-	else:
-		return "D"
 
 func tape_start():
 	on_tape_start.emit()

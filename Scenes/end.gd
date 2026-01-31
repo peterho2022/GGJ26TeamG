@@ -5,14 +5,13 @@ class_name EndScene
 @onready var score_label = $Background/VBoxContainer2/ScoreLabel
 @onready var rank_label = $Background/VBoxContainer2/RankLabel	
 
-func setup():
+func setup(final_rank):
 	
 	# 1. 顯示數字
 	var final_score = GameManager.total_tape_length
 	score_label.text =  "最終膠帶使用量: %.2f m" % (final_score / 100.0)
 	
 	# 2. 顯示評價
-	var final_rank = GameManager.calculate_rank()
 	rank_label.text = "獲得評價: " + final_rank
 	
 	# (選用) 根據評價變色
