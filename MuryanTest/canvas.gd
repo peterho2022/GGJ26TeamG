@@ -1,5 +1,7 @@
 extends Node2D
 
+signal start_tape(mouse_global_position: Vector2)
+signal change_tape_length(length: float)
 @export var paper_color: Color = Color(0.95, 0.94, 0.90, 1.0) # 紙色
 @export var tape_color: Color = Color(1.0, 0.92, 0.55, 1.0)   # 膠帶色
 @export var paper_bg_path: NodePath
@@ -38,10 +40,10 @@ var _t := 0.0
 
 var _preview_poly: Polygon2D = null
 
-
-
 var current_color_index := 0
 @export var current_color_array: Array[Color]
+
+var current_end_local: Vector2
 
 func _ready() -> void:
 	_mask_vp = get_node(mask_vp_path) as SubViewport
@@ -107,15 +109,16 @@ func _process(delta: float) -> void:
 	# 長度在 min~max 間來回變動（sin 波）
 	var s := 0.5 + 0.5 * sin(_t * TAU * length_cycles_per_sec)  # 0..1
 	var length := lerpf(min_len_px, max_len_px, s)
-
+	change_tape_length.emit(length)
 
 	var end_local := _anchor_local + dir * length
+	#current_end_local = _update_preview_polygon(_anchor_local, end_local)
 	_update_preview_polygon(_anchor_local, end_local)
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if _state == PlaceState.IDLE:
+			start_tape.emit(get_global_mouse_position())
 			_begin_length_timing()
 		elif _state == PlaceState.LENGTH_TIMING:
 			_finalize_current_tape()
@@ -134,6 +137,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	# 上色確認：建議只允許在 IDLE（避免你還在跑長度時就 commit）
 	if event.is_action_pressed("commit_color"):
+		if current_color_index >= current_color_array.size():
+		#Game End
+			return
 		if _state == PlaceState.IDLE:
 			await _commit_layer()
 
@@ -169,9 +175,6 @@ func _clear_mask() -> void:
 		(child as Node).queue_free()
 
 func _commit_layer() -> void:
-	if current_color_index > current_color_array.size():
-		#Game End
-		return
 	# 依官方建議：抓 viewport 圖像要等該幀渲染結束，不然可能拿到空貼圖。 :contentReference[oaicite:5]{index=5}
 	await RenderingServer.frame_post_draw
 
@@ -211,6 +214,7 @@ func _begin_length_timing() -> void:
 func _update_preview_polygon(a: Vector2, b: Vector2) -> void:
 	var poly := _make_tape_poly(a, b, tape_width_px * 0.5)
 	_preview_poly.polygon = poly
+	#return b
 
 func _finalize_current_tape() -> void:
 	# 讓目前的 preview 變成永久膠帶：方法是「把 preview 變成普通節點」然後清掉引用

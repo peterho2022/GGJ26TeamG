@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cqne4fbxwj7s1"]
+
+[sub_resource type="GDScript" id="GDScript_gjbiy"]
+script/source = "extends Node
+func _ready():
+	print(\"進入關卡！目前是第 \" + str(GameManager.current_level_index + 1) + \" 關\")
+
+func _input(event):
+	# 按下 Space 模擬過關
+	if event.is_action_pressed(\"ui_select\"): 
+		print(\"呼叫 Next Level\")
+		GameManager.load_next_level()
+"
+
+[node name="GameScene" type="Node2D" unique_id=512451013]
+script = SubResource("GDScript_gjbiy")
