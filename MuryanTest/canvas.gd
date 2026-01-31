@@ -2,6 +2,8 @@ extends Node2D
 
 signal start_tape(mouse_global_position: Vector2)
 signal change_tape_length(length: float)
+signal end_tape
+
 @export var paper_color: Color = Color(0.95, 0.94, 0.90, 1.0) # 紙色
 @export var tape_color: Color = Color(1.0, 0.92, 0.55, 1.0)   # 膠帶色
 @export var paper_bg_path: NodePath
@@ -122,6 +124,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_begin_length_timing()
 		elif _state == PlaceState.LENGTH_TIMING:
 			_finalize_current_tape()
+			end_tape.emit()
 
 	# 取消（可選）：右鍵或 ESC 取消這次預覽
 	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed) \

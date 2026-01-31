@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://cp5dicwhyq2it"]
 
 [ext_resource type="Script" uid="uid://bpohikfwlmy3s" path="res://PutTapeOnTest/show_hand_tap.gd" id="1_i07oa"]
+[ext_resource type="Texture2D" uid="uid://dq5blwln0330g" path="res://icon.svg" id="2_dc4ui"]
+[ext_resource type="PackedScene" uid="uid://b8j7ycmpg5842" path="res://PutTapeOnTest/hand_end.tscn" id="3_on620"]
 
 [node name="ShowHandTap" type="Node2D" unique_id=2059386105]
 script = ExtResource("1_i07oa")
+tape_texture = ExtResource("2_dc4ui")
 
 [node name="HandStart" type="ColorRect" parent="." unique_id=1176308292]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HandEnd" type="ColorRect" parent="." unique_id=460872881]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(1, 0.3137255, 0.11764706, 1)
+[node name="HandEnd" parent="." unique_id=1967817569 instance=ExtResource("3_on620")]
+unique_name_in_owner = true

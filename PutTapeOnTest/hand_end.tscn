@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8j7ycmpg5842"]
+
+[node name="HandEnd" type="ColorRect" unique_id=1967817569]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0.3137255, 0.11764706, 1)
