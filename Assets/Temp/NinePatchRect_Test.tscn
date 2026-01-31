@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://vejy15lmkjmg"]
+
+[ext_resource type="Texture2D" uid="uid://6whyf3up4ltu" path="res://Assets/Temp/tape_mask.png" id="1_voete"]
+
+[node name="Node2D" type="Node2D" unique_id=226774053]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=47331212]
+offset_left = 280.0
+offset_top = -4.0
+offset_right = 802.0
+offset_bottom = 2555.0
+texture = ExtResource("1_voete")
+region_rect = Rect2(431.73657, -101.8934, 453.64575, 1484.5824)
+patch_margin_top = 400
+patch_margin_bottom = 400
+
+[node name="Original Mask" type="Sprite2D" parent="." unique_id=1653146565]
+position = Vector2(1464, 676)
+texture = ExtResource("1_voete")
