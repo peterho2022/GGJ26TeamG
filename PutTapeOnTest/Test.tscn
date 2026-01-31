@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://72u0yxhloxtd"]
+
+[ext_resource type="PackedScene" uid="uid://cp5dicwhyq2it" path="res://PutTapeOnTest/ShowHandTap.tscn" id="1_0ruom"]
+[ext_resource type="Texture2D" uid="uid://hgh2ec6xu4bn" path="res://PutTapeOnTest/tape.png" id="2_f1613"]
+[ext_resource type="Script" uid="uid://bab1tv4yb6qio" path="res://PutTapeOnTest/test_controller.gd" id="2_t4bm1"]
+
+[node name="Test" type="Node2D" unique_id=1012928873]
+
+[node name="ShowHandTap" parent="." unique_id=2059386105 instance=ExtResource("1_0ruom")]
+tape_texture = ExtResource("2_f1613")
+
+[node name="TestController" type="Node2D" parent="." unique_id=1956568349]
+script = ExtResource("2_t4bm1")
