@@ -1,10 +1,13 @@
 extends Node
 
-
 var level_list: Array[String] = [
-	"res://Scenes/TestLevel1.tscn",
+	"res://Scenes/GameScene.tscn",
 	"res://Scenes/TestLevel2.tscn",
 ]
+
+signal on_tape_start
+signal on_tape_end
+signal on_commit_tape
 
 # 固定場景的路徑 (先填好你的選單和結局路徑)
 var menu_scene_path: String = "res://Scenes/MenuScene.tscn" 
@@ -84,3 +87,12 @@ func calculate_rank() -> String:
 		return "C"
 	else:
 		return "D"
+
+func tape_start():
+	on_tape_start.emit()
+
+func tape_end(length):
+	total_tape_length += length
+	
+func commit_tape():
+	on_commit_tape.emit()

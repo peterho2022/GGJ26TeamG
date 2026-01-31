@@ -1,19 +1,29 @@
 [gd_scene format=3 uid="uid://brxg4a3asflvk"]
 
 [ext_resource type="Script" uid="uid://b0retoaklol8q" path="res://Scenes/end.gd" id="1_ryui2"]
-[ext_resource type="Texture2D" uid="uid://ttqb4fkqj4kg" path="res://Scenes/19358353_Cheese_Bread.jpg" id="2_fxskr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fxskr"]
+font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_ckv4c"]
+font_size = 64
 
-[node name="EndScene" type="Node2D" unique_id=982691231]
+[node name="EndScene" type="Control" unique_id=2141853151]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ryui2")
 
 [node name="Background" type="TextureRect" parent="." unique_id=726113557]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_fxskr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background" unique_id=1268711606]
 layout_mode = 1
@@ -29,11 +39,14 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Button" type="Button" parent="Background/VBoxContainer" unique_id=245033056]
+custom_minimum_size = Vector2(500, 150)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
 text = "Back to Menu"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Background" unique_id=1408652955]
+custom_minimum_size = Vector2(500, 300)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -48,13 +61,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ScoreLabel" type="Label" parent="Background/VBoxContainer2" unique_id=1266733815]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 0
 text = "0"
 label_settings = SubResource("LabelSettings_fxskr")
 horizontal_alignment = 1
 
 [node name="RankLabel" type="Label" parent="Background/VBoxContainer2" unique_id=772750292]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 0
 text = "A"
 label_settings = SubResource("LabelSettings_ckv4c")
 horizontal_alignment = 1

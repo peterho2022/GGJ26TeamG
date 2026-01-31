@@ -11,13 +11,12 @@ config_version=5
 [application]
 
 config/name="GGJ26TeamG"
-run/main_scene="uid://jid3ns4n5sbs"
+run/main_scene="uid://cabi42rfhbvom"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-AudioManagerInstance="*uid://cyfglycg4eg1n"
 GameManager="*uid://0dxyu28astp1"
 AudioManager="*uid://cyfglycg4eg1n"
 

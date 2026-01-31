@@ -1,5 +1,6 @@
 extends Node
 
+class_name EndScene
 
 @onready var score_label = $Background/VBoxContainer2/ScoreLabel
 @onready var rank_label = $Background/VBoxContainer2/RankLabel	

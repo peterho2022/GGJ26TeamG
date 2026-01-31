@@ -1,14 +1,19 @@
 [gd_scene format=3 uid="uid://cqne4fbxwj7s1"]
 
 [ext_resource type="PackedScene" uid="uid://usjhj47xc03v" path="res://Scenes/ColorPalette.tscn" id="1_3mbwn"]
-[ext_resource type="Script" uid="uid://ddqo6612a0gdx" path="res://Scenes/ColorPaletteTest.gd" id="1_lohlh"]
+[ext_resource type="Script" uid="uid://583fs8a7oadf" path="res://Scenes/GameSceneController.gd" id="1_kilg5"]
 [ext_resource type="PackedScene" uid="uid://yb7yjlml87ml" path="res://Scenes/HintText.tscn" id="2_jwv4s"]
 [ext_resource type="PackedScene" uid="uid://cr1xd40m6c63g" path="res://Scenes/CountdownTimer.tscn" id="3_lohlh"]
 [ext_resource type="PackedScene" uid="uid://blc1ihyn1ej04" path="res://Scenes/canvas_layer.tscn" id="4_jwv4s"]
 [ext_resource type="PackedScene" uid="uid://jid3ns4n5sbs" path="res://MuryanTest/main.tscn" id="6_kilg5"]
+[ext_resource type="PackedScene" uid="uid://brxg4a3asflvk" path="res://Scenes/EndScene.tscn" id="6_x6js8"]
 
-[node name="GameScene" type="Node2D" unique_id=512451013]
-script = ExtResource("1_lohlh")
+[node name="GameScene" type="Node2D" unique_id=512451013 node_paths=PackedStringArray("countdownTimer", "color_palette", "end_scene")]
+script = ExtResource("1_kilg5")
+colorLayers = Array[Color]([Color(1, 0, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1), Color(3.3691526e-06, 0.73024744, 0.72408795, 1), Color(0.8457027, 0.0009647328, 0.90615726, 1)])
+countdownTimer = NodePath("CanvasLayer/CountdownTimer")
+color_palette = NodePath("CanvasLayer/ColorPalette")
+end_scene = NodePath("CanvasLayer/EndScene")
 
 [node name="CanvasLayer" parent="." unique_id=1475209388 instance=ExtResource("4_jwv4s")]
 
@@ -31,4 +36,8 @@ grow_vertical = 0
 
 [node name="CountdownTimer" parent="CanvasLayer" unique_id=307437381 instance=ExtResource("3_lohlh")]
 
+[node name="EndScene" parent="CanvasLayer" unique_id=2141853151 instance=ExtResource("6_x6js8")]
+visible = false
+
 [node name="Main" parent="." unique_id=1294165700 instance=ExtResource("6_kilg5")]
+scale = Vector2(0.58, 0.58)

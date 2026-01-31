@@ -1,5 +1,7 @@
 extends Control
 
+class_name CountdownTimer
+
 @export var prefix: String
 @export var duration_sec: float = 10.0   # 到期時間（秒）
 @export var target_label: Label

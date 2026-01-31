@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Canvas
+
 signal start_tape(mouse_global_position: Vector2)
 signal change_tape_length(length: float)
 signal end_tape
