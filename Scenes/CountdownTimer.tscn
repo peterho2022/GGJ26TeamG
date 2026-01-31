@@ -7,12 +7,15 @@ font_size = 25
 outline_size = 2
 shadow_size = 5
 
-[node name="Node2D" type="Node2D" unique_id=307437381 node_paths=PackedStringArray("target_label")]
+[node name="Node2D" type="Control" unique_id=2072100555 node_paths=PackedStringArray("target_label")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_h7yud")
 prefix = "Time Left: "
 target_label = NodePath("Label")
 
 [node name="Label" type="Label" parent="." unique_id=1382024683]
+layout_mode = 0
 offset_right = 115.0
 offset_bottom = 35.0
 text = "Time: 280"

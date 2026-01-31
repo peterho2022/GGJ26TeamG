@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @export var prefix: String
 @export var duration_sec: float = 10.0   # 到期時間（秒）

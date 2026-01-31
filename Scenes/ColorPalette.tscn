@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://c0s47txu4cjlr" path="res://Assets/ui/brush.png" id="6_esg4g"]
 [ext_resource type="Texture2D" uid="uid://bduxdj7yt30et" path="res://Assets/ui/color-brush.png" id="7_vytcn"]
 
-[node name="Node2D" type="Node2D" unique_id=309064810]
+[node name="Node2D" type="Control" unique_id=1352668564]
+layout_mode = 3
+anchors_preset = 0
 rotation = 0.26258096
 script = ExtResource("1_bdiod")
 

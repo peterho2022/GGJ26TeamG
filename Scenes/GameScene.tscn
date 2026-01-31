@@ -1,16 +1,34 @@
 [gd_scene format=3 uid="uid://cqne4fbxwj7s1"]
 
-[sub_resource type="GDScript" id="GDScript_gjbiy"]
-script/source = "extends Node
-func _ready():
-	print(\"進入關卡！目前是第 \" + str(GameManager.current_level_index + 1) + \" 關\")
-
-func _input(event):
-	# 按下 Space 模擬過關
-	if event.is_action_pressed(\"ui_select\"): 
-		print(\"呼叫 Next Level\")
-		GameManager.load_next_level()
-"
+[ext_resource type="PackedScene" uid="uid://usjhj47xc03v" path="res://Scenes/ColorPalette.tscn" id="1_3mbwn"]
+[ext_resource type="Script" uid="uid://ddqo6612a0gdx" path="res://Scenes/ColorPaletteTest.gd" id="1_lohlh"]
+[ext_resource type="PackedScene" uid="uid://yb7yjlml87ml" path="res://Scenes/HintText.tscn" id="2_jwv4s"]
+[ext_resource type="PackedScene" uid="uid://cr1xd40m6c63g" path="res://Scenes/CountdownTimer.tscn" id="3_lohlh"]
+[ext_resource type="PackedScene" uid="uid://blc1ihyn1ej04" path="res://Scenes/canvas_layer.tscn" id="4_jwv4s"]
+[ext_resource type="PackedScene" uid="uid://jid3ns4n5sbs" path="res://MuryanTest/main.tscn" id="6_kilg5"]
 
 [node name="GameScene" type="Node2D" unique_id=512451013]
-script = SubResource("GDScript_gjbiy")
+script = ExtResource("1_lohlh")
+
+[node name="CanvasLayer" parent="." unique_id=1475209388 instance=ExtResource("4_jwv4s")]
+
+[node name="ColorPalette" parent="CanvasLayer" unique_id=309064810 instance=ExtResource("1_3mbwn")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = -0.5235988
+scale = Vector2(0.5, 0.5)
+
+[node name="HintText" parent="CanvasLayer" unique_id=1634114030 instance=ExtResource("2_jwv4s")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="CountdownTimer" parent="CanvasLayer" unique_id=307437381 instance=ExtResource("3_lohlh")]
+
+[node name="Main" parent="." unique_id=1294165700 instance=ExtResource("6_kilg5")]

@@ -4,7 +4,7 @@ var color_palette : ColorPaletteController
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	color_palette = $ColorPalette
+	color_palette = $CanvasLayer/ColorPalette
 	color_palette.setup([
 		Color(1, 0, 0, 1),
 		Color(1, 1, 0, 1),

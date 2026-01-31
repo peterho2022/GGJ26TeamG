@@ -3,9 +3,12 @@
 [sub_resource type="LabelSettings" id="LabelSettings_61f7q"]
 font_size = 25
 
-[node name="Node2D" type="Node2D" unique_id=1634114030]
+[node name="Node2D" type="Control" unique_id=2145139494]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="Label" type="Label" parent="." unique_id=973282112]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
