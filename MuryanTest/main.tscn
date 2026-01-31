@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://jid3ns4n5sbs"]
+
+[ext_resource type="Script" uid="uid://c8vayeutibgxy" path="res://MuryanTest/canvas.gd" id="1_0xm2m"]
+[ext_resource type="Shader" uid="uid://cagap8j26mp5o" path="res://MuryanTest/tape_overlay.gdshader" id="1_ig7tw"]
+[ext_resource type="Shader" uid="uid://dbrlv7aro0ts" path="res://MuryanTest/paint_layer.gdshader" id="3_h2yge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/tape_color = Color(1, 0.92, 0.55, 1)
+shader_parameter/tape_opacity = 0.85
+
+[node name="Main" type="Node2D" unique_id=1294165700]
+
+[node name="Canvas" type="Node2D" parent="." unique_id=1034967132]
+script = ExtResource("1_0xm2m")
+canvas_size = Vector2i(1920, 1080)
+tape_width_px = 80.0
+mask_vp_path = NodePath("../MaskVP")
+mask_root_path = NodePath("../MaskVP/MaskRoot")
+results_root_path = NodePath("ResultsRoot")
+tape_overlay_path = NodePath("TapeOverlay")
+tape_overlay_shader = ExtResource("1_ig7tw")
+paint_layer_shader = ExtResource("3_h2yge")
+
+[node name="BaseArt" type="Sprite2D" parent="Canvas" unique_id=320192340]
+
+[node name="ResultsRoot" type="Node2D" parent="Canvas" unique_id=1974845268]
+
+[node name="TapeOverlay" type="Sprite2D" parent="Canvas" unique_id=6612012]
+material = SubResource("ShaderMaterial_0xm2m")
+
+[node name="MaskVP" type="SubViewport" parent="." unique_id=853540378]
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="MaskRoot" type="Node2D" parent="MaskVP" unique_id=151372882]
