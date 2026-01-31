@@ -1,9 +1,6 @@
 extends Node
 
-# --- 設定區 ---
 
-# 這是你要填空的地方。目前可以是空的，或是放暫位符。
-# 之後你做好了關卡，就把路徑貼進來，例如 "res://scenes/levels/Level1.tscn"
 var level_list: Array[String] = [
 	"res://Scenes/TestLevel1.tscn",
 	"res://Scenes/TestLevel2.tscn",
@@ -39,7 +36,8 @@ func load_next_level():
 # 3. 回到選單 (從結局或暫停選單呼叫)
 func back_to_menu():
 	current_level_index = 0
-	_change_scene_safe(menu_scene_path)
+	reset_tape_length()
+	get_tree().change_scene_to_file("res://scenes/MenuScene.tscn") # 範例路徑
 
 # --- 核心邏輯 (包含安全檢查) ---
 
@@ -71,5 +69,18 @@ func load_specific_level(index: int):
 func add_tape_length(v: float):
 	total_tape_length += v
 	
-func reset_tape_length(v: float):
-	total_tape_length = 0
+func reset_tape_length():
+	total_tape_length = 0.0
+	
+func calculate_rank() -> String:
+	# 依照你的規則：S(<=5), A(<=7), B(<=10), C(<=14), D(>14)
+	if total_tape_length <= 5:
+		return "S"
+	elif total_tape_length <= 7:
+		return "A"
+	elif total_tape_length <= 10:
+		return "B"
+	elif total_tape_length <= 14:
+		return "C"
+	else:
+		return "D"

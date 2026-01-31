@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://b0retoaklol8q" path="res://Scenes/end.gd" id="1_ryui2"]
 [ext_resource type="Texture2D" uid="uid://ttqb4fkqj4kg" path="res://Scenes/19358353_Cheese_Bread.jpg" id="2_fxskr"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_fxskr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ckv4c"]
+
 [node name="EndScene" type="Node2D" unique_id=982691231]
 script = ExtResource("1_ryui2")
 
@@ -14,21 +18,46 @@ texture = ExtResource("2_fxskr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background" unique_id=1268711606]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -40.0
+offset_right = 57.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="Button" type="Button" parent="Background/VBoxContainer" unique_id=245033056]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Back to Menu"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Background" unique_id=1408652955]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.18985
+offset_top = 62.485382
+offset_right = 56.81015
+offset_bottom = 112.48538
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="Background/VBoxContainer2" unique_id=1266733815]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_fxskr")
+horizontal_alignment = 1
+
+[node name="RankLabel" type="Label" parent="Background/VBoxContainer2" unique_id=772750292]
+layout_mode = 2
+text = "A"
+label_settings = SubResource("LabelSettings_ckv4c")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Background/VBoxContainer/Button" to="." method="_on_button_pressed"]
