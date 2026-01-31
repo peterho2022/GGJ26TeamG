@@ -13,7 +13,6 @@ script = ExtResource("1_ryui2")
 [node name="Background" type="TextureRect" parent="." unique_id=726113557]
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(2.236315, 2.236315)
 texture = ExtResource("2_fxskr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background" unique_id=1268711606]

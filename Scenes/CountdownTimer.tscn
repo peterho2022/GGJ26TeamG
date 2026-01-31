@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cr1xd40m6c63g"]
+
+[ext_resource type="Script" uid="uid://c03hceb4dvp4h" path="res://Scenes/CountdownTimer.gd" id="1_h7yud"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h7yud"]
+font_size = 25
+outline_size = 2
+shadow_size = 5
+
+[node name="Node2D" type="Node2D" unique_id=307437381 node_paths=PackedStringArray("target_label")]
+script = ExtResource("1_h7yud")
+prefix = "Time Left: "
+target_label = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=1382024683]
+offset_right = 115.0
+offset_bottom = 35.0
+text = "Time: 280"
+label_settings = SubResource("LabelSettings_h7yud")
