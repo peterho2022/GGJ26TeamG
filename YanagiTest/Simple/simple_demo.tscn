@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://ccnsfiipuhqkx"]
+
+[ext_resource type="Script" uid="uid://bp2kovjrnf0ky" path="res://YanagiTest/Simple/clip_test_simple.gd" id="1_ovge6"]
+[ext_resource type="Shader" uid="uid://cxeljokbwwg0l" path="res://YanagiTest/Utils/clip_test_mask.gdshader" id="2_r3mxs"]
+[ext_resource type="Texture2D" uid="uid://bwgksdrwnrqqq" path="res://YanagiTest/Simple/IMG_0002.png" id="3_ovge6"]
+[ext_resource type="Texture2D" uid="uid://bh5q4bfv7p2iy" path="res://YanagiTest/Simple/mask.png" id="4_x26iv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cmdm1"]
+shader = ExtResource("2_r3mxs")
+shader_parameter/albedo = Vector4(1, 1, 1, 1)
+shader_parameter/base_tex = ExtResource("3_ovge6")
+
+[node name="Game" type="Node" unique_id=2101485950]
+script = ExtResource("1_ovge6")
+
+[node name="ClipTest" type="Node" parent="." unique_id=301816432]
+
+[node name="Target" type="Sprite2D" parent="ClipTest" unique_id=1629087431]
+z_index = 5
+material = SubResource("ShaderMaterial_cmdm1")
+texture = ExtResource("3_ovge6")
+centered = false
+
+[node name="VisualizeSubViewport" type="Node" parent="ClipTest" unique_id=1324359101]
+
+[node name="Mask" type="Sprite2D" parent="ClipTest/VisualizeSubViewport" unique_id=129384771]
+visible = false
+z_index = 2
+position = Vector2(298.5, 548)
+texture = ExtResource("4_x26iv")
+
+[node name="Mask2" type="Sprite2D" parent="ClipTest/VisualizeSubViewport" unique_id=1625878461]
+visible = false
+z_index = 2
+position = Vector2(598.5, 548)
+texture = ExtResource("4_x26iv")
+
+[node name="Mask3" type="Sprite2D" parent="ClipTest/VisualizeSubViewport" unique_id=1871114877]
+visible = false
+z_index = 2
+position = Vector2(898.5, 548)
+texture = ExtResource("4_x26iv")
+
+[node name="Mask4" type="Sprite2D" parent="ClipTest/VisualizeSubViewport" unique_id=938260565]
+visible = false
+z_index = 2
+position = Vector2(1498.5, 548)
+texture = ExtResource("4_x26iv")
+
+[node name="Mask5" type="Sprite2D" parent="ClipTest/VisualizeSubViewport" unique_id=1017820535]
+visible = false
+z_index = 2
+position = Vector2(2098.5, 548)
+texture = ExtResource("4_x26iv")
+
+[node name="SubViewport" type="SubViewport" parent="ClipTest" unique_id=1383818400]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Mask" type="Sprite2D" parent="ClipTest/SubViewport" unique_id=923992654]
+z_index = 2
+position = Vector2(298.5, 548)
+texture = ExtResource("4_x26iv")
+
+[node name="Mask2" type="Sprite2D" parent="ClipTest/SubViewport" unique_id=910382333]
+z_index = 2
+position = Vector2(598.5, 548)
+texture = ExtResource("4_x26iv")
+
+[node name="Mask3" type="Sprite2D" parent="ClipTest/SubViewport" unique_id=2126575712]
+z_index = 2
+position = Vector2(898.5, 548)
+texture = ExtResource("4_x26iv")
+
+[node name="Mask4" type="Sprite2D" parent="ClipTest/SubViewport" unique_id=1615331062]
+z_index = 2
+position = Vector2(1498.5, 548)
+texture = ExtResource("4_x26iv")
+
+[node name="Mask5" type="Sprite2D" parent="ClipTest/SubViewport" unique_id=1575454270]
+z_index = 2
+position = Vector2(2098.5, 548)
+texture = ExtResource("4_x26iv")

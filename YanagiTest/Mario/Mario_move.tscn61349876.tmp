@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://0sodj51wsvbw"]
+
+[ext_resource type="Script" uid="uid://53ftssgwl7ja" path="res://YanagiTest/Mario/clip_test_mario.gd" id="1_3lbrt"]
+[ext_resource type="Texture2D" uid="uid://crwx761ijo62n" path="res://YanagiTest/Mario/base.png" id="2_ohvh7"]
+[ext_resource type="Texture2D" uid="uid://o4d0tvuk0qu3" path="res://YanagiTest/Mario/Masks/white.png" id="3_ca8m1"]
+[ext_resource type="Shader" uid="uid://cxeljokbwwg0l" path="res://YanagiTest/Utils/clip_test_mask.gdshader" id="4_etwmf"]
+[ext_resource type="Texture2D" uid="uid://d15njg31ildtk" path="res://YanagiTest/Utils/purewhite.png" id="5_7h5pa"]
+[ext_resource type="Texture2D" uid="uid://c6ds4mp02h726" path="res://YanagiTest/Mario/Masks/blue.png" id="6_xw1pt"]
+[ext_resource type="Texture2D" uid="uid://hx1lv4nqd0sk" path="res://YanagiTest/Mario/Masks/brown.png" id="7_lraic"]
+[ext_resource type="Texture2D" uid="uid://dej0ral6gwcim" path="res://YanagiTest/Mario/Masks/red.png" id="8_rs2xa"]
+[ext_resource type="Texture2D" uid="uid://dr4e478hpgr5w" path="res://YanagiTest/Mario/Masks/skin.png" id="9_lpkjm"]
+[ext_resource type="Texture2D" uid="uid://d1dch1ypqonqu" path="res://YanagiTest/Mario/Masks/button.png" id="10_ovumd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gd2ei"]
+shader = ExtResource("4_etwmf")
+shader_parameter/albedo = Vector4(0, 0, 1, 1)
+
+[node name="Game" type="Node" unique_id=2101485950]
+script = ExtResource("1_3lbrt")
+
+[node name="ClipTest" type="Node" parent="." unique_id=301816432]
+
+[node name="Base" type="Sprite2D" parent="ClipTest" unique_id=1262795468]
+texture = ExtResource("2_ohvh7")
+centered = false
+
+[node name="WhiteSubViewport" type="SubViewport" parent="ClipTest" unique_id=351654124]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Mask" type="Sprite2D" parent="ClipTest/WhiteSubViewport" unique_id=432190538]
+z_index = 2
+texture = ExtResource("3_ca8m1")
+centered = false
+
+[node name="WhiteFullScreenRect" type="Sprite2D" parent="ClipTest" unique_id=411137321]
+z_index = 10
+material = SubResource("ShaderMaterial_gd2ei")
+texture = ExtResource("5_7h5pa")
+centered = false
+
+[node name="BlueSubViewport" type="SubViewport" parent="ClipTest" unique_id=1760074823]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Mask" type="Sprite2D" parent="ClipTest/BlueSubViewport" unique_id=96796911]
+z_index = 2
+texture = ExtResource("6_xw1pt")
+centered = false
+
+[node name="BlueFullScreenRect" type="Sprite2D" parent="ClipTest" unique_id=1725636634]
+z_index = 15
+material = SubResource("ShaderMaterial_gd2ei")
+texture = ExtResource("5_7h5pa")
+centered = false
+
+[node name="BrownSubViewport" type="SubViewport" parent="ClipTest" unique_id=312694772]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Mask" type="Sprite2D" parent="ClipTest/BrownSubViewport" unique_id=1472469953]
+z_index = 2
+texture = ExtResource("7_lraic")
+centered = false
+
+[node name="BrownFullScreenRect" type="Sprite2D" parent="ClipTest" unique_id=758946716]
+z_index = 20
+material = SubResource("ShaderMaterial_gd2ei")
+texture = ExtResource("5_7h5pa")
+centered = false
+
+[node name="RedSubViewport" type="SubViewport" parent="ClipTest" unique_id=501503108]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Mask" type="Sprite2D" parent="ClipTest/RedSubViewport" unique_id=1184205443]
+z_index = 2
+texture = ExtResource("8_rs2xa")
+centered = false
+
+[node name="RedFullScreenRect" type="Sprite2D" parent="ClipTest" unique_id=11187373]
+z_index = 20
+material = SubResource("ShaderMaterial_gd2ei")
+texture = ExtResource("5_7h5pa")
+centered = false
+
+[node name="SkinSubViewport" type="SubViewport" parent="ClipTest" unique_id=834041833]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Mask" type="Sprite2D" parent="ClipTest/SkinSubViewport" unique_id=843958749]
+z_index = 2
+texture = ExtResource("9_lpkjm")
+centered = false
+
+[node name="SkinFullScreenRect" type="Sprite2D" parent="ClipTest" unique_id=655442780]
+z_index = 20
+material = SubResource("ShaderMaterial_gd2ei")
+texture = ExtResource("5_7h5pa")
+centered = false
+
+[node name="ButtonSubViewport" type="SubViewport" parent="ClipTest" unique_id=1272078890]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Mask" type="Sprite2D" parent="ClipTest/ButtonSubViewport" unique_id=877274]
+z_index = 2
+texture = ExtResource("10_ovumd")
+centered = false
+
+[node name="ButtonFullScreenRect" type="Sprite2D" parent="ClipTest" unique_id=1450419943]
+z_index = 20
+material = SubResource("ShaderMaterial_gd2ei")
+texture = ExtResource("5_7h5pa")
+centered = false
