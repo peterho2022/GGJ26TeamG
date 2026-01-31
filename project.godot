@@ -16,8 +16,9 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
+
 GameManager="*uid://0dxyu28astp1"
-AudioManagerInstance="*uid://cyfglycg4eg1n"
+AudioManager="*uid://cyfglycg4eg1n"
 
 [display]
 

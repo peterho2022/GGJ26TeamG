@@ -1,5 +1,4 @@
 extends Node
-class_name AudioManager
 
 enum SFX {
 	RIP_TAPE
