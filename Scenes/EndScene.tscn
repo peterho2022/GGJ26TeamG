@@ -32,17 +32,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -40.0
-offset_right = 57.0
+offset_left = -251.0
+offset_top = -195.0
+offset_right = 249.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Button" type="Button" parent="Background/VBoxContainer" unique_id=245033056]
-custom_minimum_size = Vector2(500, 150)
+custom_minimum_size = Vector2(250, 105)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "Back to Menu"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Background" unique_id=1408652955]

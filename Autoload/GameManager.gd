@@ -93,6 +93,7 @@ func tape_start():
 
 func tape_end(length):
 	total_tape_length += length
+	print('total_tape_length = ', total_tape_length)
 	
 func commit_tape():
 	on_commit_tape.emit()

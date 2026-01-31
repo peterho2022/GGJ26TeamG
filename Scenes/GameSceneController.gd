@@ -35,6 +35,7 @@ func _on_commit_tape():
 	if current_index < len(colorLayers):
 		color_palette.next_color()
 	else:
+		countdownTimer.visible = false
+		end_scene.setup()
 		end_scene.visible = true
-		# GameManager._go_to_end_scene()
 	pass

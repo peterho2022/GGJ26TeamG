@@ -32,9 +32,17 @@ scale = Vector2(0.5, 0.5)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -47.0
+offset_right = 45.0
+offset_bottom = -47.0
 grow_vertical = 0
 
 [node name="CountdownTimer" parent="CanvasLayer" unique_id=307437381 instance=ExtResource("3_lohlh")]
+offset_left = 45.0
+offset_top = 45.0
+offset_right = 45.0
+offset_bottom = 45.0
 
 [node name="EndScene" parent="CanvasLayer" unique_id=2141853151 instance=ExtResource("6_x6js8")]
 visible = false
