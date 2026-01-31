@@ -7,6 +7,7 @@ var tape_is_finished: bool = false
 
 func _ready() -> void:
 	canvas.start_tape.connect(func(pos:Vector2):
+		tape_manager.tape_height = canvas.tape_width_px
 		tape_manager.show_hand_start()
 		tape_manager.place_start_point(pos)
 		tape_is_finished = false

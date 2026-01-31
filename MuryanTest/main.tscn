@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dq5blwln0330g" path="res://icon.svg" id="4_pal21"]
 [ext_resource type="Script" uid="uid://cxrp1hy81eila" path="res://MuryanTest/decoration.gd" id="5_1aae8"]
 [ext_resource type="PackedScene" uid="uid://cp5dicwhyq2it" path="res://PutTapeOnTest/ShowHandTap.tscn" id="6_b0lwq"]
-[ext_resource type="Texture2D" uid="uid://hgh2ec6xu4bn" path="res://PutTapeOnTest/tape.png" id="7_b0lwq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
 shader = ExtResource("1_ig7tw")
@@ -47,7 +46,6 @@ canvas = NodePath("../Canvas")
 
 [node name="ShowHandTape" parent="Decoration" unique_id=2059386105 instance=ExtResource("6_b0lwq")]
 z_index = 4096
-tape_texture = ExtResource("7_b0lwq")
 
 [node name="MaskVP" type="SubViewport" parent="." unique_id=853540378]
 size = Vector2i(1024, 1024)

@@ -2,11 +2,14 @@ extends Node2D
 
 
 @export var tape_texture: Texture2D  # 在編輯器中拖入你的膠帶貼圖
+
+
 @onready var hand_start = $HandStart
 @onready var hand_end: ColorRect = %HandEnd
 
 var current_tape: NinePatchRect = null
 var hand_anchor: Control = null
+var tape_height := 40
 
 func _ready():
 	hand_start.visible = false
@@ -25,7 +28,6 @@ func place_start_point(pos: Vector2):
 	
 	# 設定中心點 (Pivot) 為左側中心
 	# 假設膠帶寬度預設為 40
-	var tape_height = 40 
 	current_tape.size = Vector2(0, tape_height)
 	current_tape.pivot_offset = Vector2(0, tape_height / 2.0)
 	
