@@ -30,5 +30,7 @@ func _ready() -> void:
 		GameManager.commit_tape()
 		)
 func _process(delta: float) -> void:
+	if GameManager.game_over:
+		return
 	if not tape_is_finished:
 		tape_manager.set_direction()

@@ -9,12 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://brxg4a3asflvk" path="res://Scenes/EndScene.tscn" id="6_x6js8"]
 [ext_resource type="Texture2D" uid="uid://cxnhrlkgiybyo" path="res://Assets/level-1/1-goal.png" id="7_lg2j6"]
 
-[node name="GameScene" type="Node2D" unique_id=512451013 node_paths=PackedStringArray("countdownTimer", "color_palette", "end_scene")]
+[node name="GameScene" type="Node2D" unique_id=512451013 node_paths=PackedStringArray("countdownTimer", "color_palette", "end_scene", "main")]
 script = ExtResource("1_kilg5")
 colorLayers = Array[Color]([Color(1, 0, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1), Color(3.3691526e-06, 0.73024744, 0.72408795, 1), Color(0.8457027, 0.0009647328, 0.90615726, 1)])
 countdownTimer = NodePath("CanvasLayer/CountdownTimer")
 color_palette = NodePath("CanvasLayer/ColorPalette")
 end_scene = NodePath("CanvasLayer/EndScene")
+main = NodePath("Main")
 
 [node name="CanvasLayer" parent="." unique_id=1475209388 instance=ExtResource("4_jwv4s")]
 

@@ -99,6 +99,8 @@ func _setup_tape_overlay() -> void:
 	_tape_overlay.material = mat
 
 func _process(delta: float) -> void:
+	if GameManager.game_over:
+		return
 	if _state != PlaceState.LENGTH_TIMING:
 		return
 
@@ -122,6 +124,8 @@ func _process(delta: float) -> void:
 	_update_preview_polygon(_anchor_local, end_local)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if GameManager.game_over:
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if _state == PlaceState.IDLE:
 			start_tape.emit(get_global_mouse_position())

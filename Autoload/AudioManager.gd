@@ -26,7 +26,7 @@ enum BGM {
 }
 
 @export var bgm_map := {
-	BGM.MENU: preload("res://Assets/Audio/bgm/jazz-background-music-416542.mp3"),
+	BGM.GAME: preload("res://Assets/Audio/bgm/jazz-background-music-416542.mp3"),
 }
 
 @export var max_players := 8

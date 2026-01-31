@@ -17,11 +17,13 @@ var end_scene_path: String = "res://Scenes/EndScene.tscn"
 var current_level_index: int = 0
 
 var total_tape_length: float = 0
+var game_over : bool = false
 
 # --- 功能函數 ---
 
 # 1. 開始遊戲 (從選單呼叫)
 func start_game():
+	game_over = false
 	current_level_index = 0
 	_load_current_level()
 
@@ -94,6 +96,8 @@ func tape_start():
 func tape_end(length):
 	total_tape_length += length
 	print('total_tape_length = ', total_tape_length)
+	on_tape_end.emit()
 	
 func commit_tape():
 	on_commit_tape.emit()
+	AudioManager.play_sfx(AudioManager.SFX.PAINT)
