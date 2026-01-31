@@ -5,7 +5,7 @@ extends Node2D
 @export var canvas: Node2D
 
 @onready var hand_start = $HandStart
-@onready var hand_end: ColorRect = %HandEnd
+@onready var hand_end: Sprite2D = %HandEnd
 
 var current_tape: NinePatchRect = null
 var hand_anchor: Control = null
@@ -21,6 +21,10 @@ func _ready():
 func place_start_point(pos: Vector2):
 	current_tape = NinePatchRect.new()
 	current_tape.texture = tape_texture
+	
+	# to occulude right hand but show left hand
+	current_tape.z_index = 50
+	current_tape.z_as_relative = false
 	
 	# 設定 NinePatch 的邊界，確保縮放時兩頭不變形 (數值依貼圖而定)
 	current_tape.patch_margin_left = 16
@@ -57,6 +61,7 @@ func set_direction():
 		#current_tape.rotation = GameManager.dir.angle()
 	if canvas.current_dir.length() > 0.01:
 		current_tape.rotation = canvas.current_dir.angle()
+		hand_start.rotation = canvas.current_dir.angle()
 	
 # 3. 選擇長度：固定方向，僅拉伸長度
 func set_length(target_pos: Vector2):

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://blc1ihyn1ej04" path="res://Scenes/canvas_layer.tscn" id="4_jwv4s"]
 [ext_resource type="PackedScene" uid="uid://jid3ns4n5sbs" path="res://MuryanTest/main.tscn" id="6_kilg5"]
 [ext_resource type="PackedScene" uid="uid://brxg4a3asflvk" path="res://Scenes/EndScene.tscn" id="6_x6js8"]
+[ext_resource type="Texture2D" uid="uid://cxnhrlkgiybyo" path="res://Assets/level-1/1-goal.png" id="7_lg2j6"]
 
 [node name="GameScene" type="Node2D" unique_id=512451013 node_paths=PackedStringArray("countdownTimer", "color_palette", "end_scene")]
 script = ExtResource("1_kilg5")
@@ -47,5 +48,20 @@ offset_bottom = 45.0
 [node name="EndScene" parent="CanvasLayer" unique_id=2141853151 instance=ExtResource("6_x6js8")]
 visible = false
 
+[node name="ReferenceImage" type="Control" parent="CanvasLayer" unique_id=942218787]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 15.0
+grow_horizontal = 0
+scale = Vector2(0.75, 0.75)
+
+[node name="Image" type="Sprite2D" parent="CanvasLayer/ReferenceImage" unique_id=2077270915]
+texture = ExtResource("7_lg2j6")
+offset = Vector2(-256, 256)
+
 [node name="Main" parent="." unique_id=1294165700 instance=ExtResource("6_kilg5")]
-scale = Vector2(0.58, 0.58)

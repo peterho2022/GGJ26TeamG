@@ -3,14 +3,18 @@
 [ext_resource type="Script" uid="uid://bpohikfwlmy3s" path="res://PutTapeOnTest/show_hand_tap.gd" id="1_i07oa"]
 [ext_resource type="Texture2D" uid="uid://dq5blwln0330g" path="res://icon.svg" id="2_dc4ui"]
 [ext_resource type="PackedScene" uid="uid://b8j7ycmpg5842" path="res://PutTapeOnTest/hand_end.tscn" id="3_on620"]
+[ext_resource type="Texture2D" uid="uid://4m3m7xvjl20q" path="res://Assets/left-hand.png" id="3_wki3b"]
 
 [node name="ShowHandTap" type="Node2D" unique_id=2059386105]
 script = ExtResource("1_i07oa")
 tape_texture = ExtResource("2_dc4ui")
 
-[node name="HandStart" type="ColorRect" parent="." unique_id=1176308292]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HandStart" type="Sprite2D" parent="." unique_id=684110395]
+z_index = 55
+position = Vector2(-100, 150)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_wki3b")
 
 [node name="HandEnd" parent="." unique_id=1967817569 instance=ExtResource("3_on620")]
 unique_name_in_owner = true
+scale = Vector2(0.3, 0.3)
