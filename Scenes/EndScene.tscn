@@ -1,6 +1,34 @@
 [gd_scene format=3 uid="uid://brxg4a3asflvk"]
 
 [ext_resource type="Script" uid="uid://b0retoaklol8q" path="res://Scenes/end.gd" id="1_ryui2"]
+[ext_resource type="Texture2D" uid="uid://ttqb4fkqj4kg" path="res://Scenes/19358353_Cheese_Bread.jpg" id="2_fxskr"]
 
 [node name="EndScene" type="Node2D" unique_id=982691231]
 script = ExtResource("1_ryui2")
+
+[node name="Background" type="TextureRect" parent="." unique_id=726113557]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2.236315, 2.236315)
+texture = ExtResource("2_fxskr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background" unique_id=1268711606]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Background/VBoxContainer" unique_id=245033056]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back to Menu"
+
+[connection signal="pressed" from="Background/VBoxContainer/Button" to="." method="_on_button_pressed"]

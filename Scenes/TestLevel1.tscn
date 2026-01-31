@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://c7eotsidncc3c"]
 
 [ext_resource type="Script" uid="uid://dv1b6udmjbhmb" path="res://Autoload/LevelTest.gd" id="1_82kcb"]
+[ext_resource type="Texture2D" uid="uid://bs0byw2adn4r" path="res://Scenes/ADDY5835.jpg" id="2_8h1c6"]
 
 [node name="TestLevel1" type="Node2D" unique_id=264321700]
 script = ExtResource("1_82kcb")
+
+[node name="Background" type="TextureRect" parent="." unique_id=306141797]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.8476042, 1.8476042)
+texture = ExtResource("2_8h1c6")

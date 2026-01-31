@@ -58,3 +58,11 @@ func _go_to_end_scene():
 func _change_scene_safe(path: String):
 	print("正在模擬切換到場景: ", path) 
 	get_tree().change_scene_to_file(path)
+	
+func load_specific_level(index: int):
+	# 安全檢查：確保 index 沒有超出陣列範圍
+	if index >= 0 and index < level_list.size():
+		current_level_index = index # 更新目前的進度變數
+		_change_scene_safe(level_list[index]) # 載入該關卡
+	else:
+		print("錯誤：關卡索引超出範圍！")
