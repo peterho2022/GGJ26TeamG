@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://usjhj47xc03v"]
+
+[ext_resource type="Script" uid="uid://dcf3p77a6g2ui" path="res://Scenes/ColorPaletteController.gd" id="1_bdiod"]
+[ext_resource type="Texture2D" uid="uid://3hl3p7gbb7p8" path="res://Assets/ui/plate.png" id="2_3nn66"]
+[ext_resource type="Texture2D" uid="uid://hpudocpsrx3g" path="res://Assets/ui/color-1.png" id="3_esg4g"]
+[ext_resource type="Texture2D" uid="uid://cby6buoapkxyd" path="res://Assets/ui/color-2.png" id="4_vytcn"]
+[ext_resource type="Texture2D" uid="uid://bx0p812yvlrb3" path="res://Assets/ui/color-3.png" id="5_m71f8"]
+[ext_resource type="Texture2D" uid="uid://c0s47txu4cjlr" path="res://Assets/ui/brush.png" id="6_esg4g"]
+[ext_resource type="Texture2D" uid="uid://bduxdj7yt30et" path="res://Assets/ui/color-brush.png" id="7_vytcn"]
+
+[node name="Node2D" type="Node2D" unique_id=309064810]
+rotation = 0.26258096
+script = ExtResource("1_bdiod")
+
+[node name="Palette" type="Node2D" parent="." unique_id=1701751698]
+
+[node name="Sprite2D" type="Sprite2D" parent="Palette" unique_id=656418937]
+texture = ExtResource("2_3nn66")
+
+[node name="Color1" type="Sprite2D" parent="Palette" unique_id=530926207]
+position = Vector2(-166.99998, -613.99994)
+scale = Vector2(0.90034354, 0.90034354)
+texture = ExtResource("3_esg4g")
+
+[node name="Color2" type="Sprite2D" parent="Palette" unique_id=644252836]
+position = Vector2(171, -617.99994)
+scale = Vector2(0.90034354, 0.90034354)
+texture = ExtResource("3_esg4g")
+
+[node name="Color3" type="Sprite2D" parent="Palette" unique_id=154251010]
+position = Vector2(461.99997, -443.99997)
+scale = Vector2(0.8397212, 0.8397212)
+texture = ExtResource("4_vytcn")
+
+[node name="Color4" type="Sprite2D" parent="Palette" unique_id=930248450]
+position = Vector2(603, -152)
+scale = Vector2(0.8418874, 0.8418874)
+texture = ExtResource("5_m71f8")
+
+[node name="Color5" type="Sprite2D" parent="Palette" unique_id=2024003478]
+position = Vector2(596.99994, 180.00002)
+scale = Vector2(0.90034354, 0.90034354)
+texture = ExtResource("3_esg4g")
+
+[node name="Color6" type="Sprite2D" parent="Palette" unique_id=920160102]
+position = Vector2(435.45242, 456.61945)
+scale = Vector2(0.8397212, 0.8397212)
+texture = ExtResource("4_vytcn")
+
+[node name="Color7" type="Sprite2D" parent="Palette" unique_id=825529636]
+position = Vector2(159.99998, 608)
+scale = Vector2(0.8418874, 0.8418874)
+texture = ExtResource("5_m71f8")
+
+[node name="Color8" type="Sprite2D" parent="Palette" unique_id=1909224115]
+position = Vector2(-173.91902, 620.4105)
+scale = Vector2(0.90034354, 0.90034354)
+texture = ExtResource("3_esg4g")
+
+[node name="Color9" type="Sprite2D" parent="Palette" unique_id=805479564]
+position = Vector2(-481.99994, 449.9999)
+scale = Vector2(0.8397212, 0.8397212)
+texture = ExtResource("4_vytcn")
+
+[node name="Color10" type="Sprite2D" parent="Palette" unique_id=409669996]
+position = Vector2(-619.17377, 158.14198)
+scale = Vector2(0.8418874, 0.8418874)
+texture = ExtResource("5_m71f8")
+
+[node name="Color11" type="Sprite2D" parent="Palette" unique_id=769695964]
+position = Vector2(-612.6121, -171.87314)
+scale = Vector2(0.8418874, 0.8418874)
+texture = ExtResource("5_m71f8")
+
+[node name="Color12" type="Sprite2D" parent="Palette" unique_id=1676473270]
+position = Vector2(-457, -452)
+scale = Vector2(0.83972114, 0.83972114)
+texture = ExtResource("4_vytcn")
+
+[node name="Brush" type="Node2D" parent="." unique_id=1106984358]
+
+[node name="Pen" type="Sprite2D" parent="Brush" unique_id=1344290007]
+rotation = -0.26258096
+texture = ExtResource("6_esg4g")
+
+[node name="Brush" type="Sprite2D" parent="Brush" unique_id=1915895376]
+position = Vector2(-82.28492, -306.13422)
+rotation = 2.8790119
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("7_vytcn")

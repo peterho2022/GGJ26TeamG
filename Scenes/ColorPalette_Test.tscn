@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://da0lb3fsoldp3"]
+
+[ext_resource type="Script" uid="uid://ddqo6612a0gdx" path="res://Scenes/ColorPaletteTest.gd" id="1_dr1ei"]
+[ext_resource type="PackedScene" uid="uid://usjhj47xc03v" path="res://Scenes/ColorPalette.tscn" id="2_tvpyd"]
+
+[node name="Node2D" type="Node2D" unique_id=1736636243]
+script = ExtResource("1_dr1ei")
+
+[node name="ColorPalette" parent="." unique_id=309064810 instance=ExtResource("2_tvpyd")]
+position = Vector2(1923, 1108)
+rotation = -0.5725982
