@@ -3,6 +3,7 @@ extends Node2D
 signal start_tape(mouse_global_position: Vector2)
 signal change_tape_length(length: float)
 signal end_tape
+signal commit_finished
 
 @export var paper_color: Color = Color(0.95, 0.94, 0.90, 1.0) # 紙色
 @export var tape_color: Color = Color(1.0, 0.92, 0.55, 1.0)   # 膠帶色
@@ -144,6 +145,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		#Game End
 			return
 		if _state == PlaceState.IDLE:
+			commit_finished.emit()
 			await _commit_layer()
 
 

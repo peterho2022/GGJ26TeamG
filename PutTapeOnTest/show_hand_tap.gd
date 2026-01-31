@@ -1,6 +1,5 @@
 extends Node2D
 
-const HAND_END = preload("uid://b8j7ycmpg5842")
 
 @export var tape_texture: Texture2D  # 在編輯器中拖入你的膠帶貼圖
 @onready var hand_start = $HandStart
@@ -71,4 +70,15 @@ func tape_end():
 	#hand_end.visible = false
 
 func remove_hand_end():
-	current_tape.remove_child(hand_end)
+	hand_end.get_parent().remove_child(hand_end)
+
+func hide_hand_start():
+	hand_start.hide()
+	
+func show_hand_start():
+	hand_start.show()
+	
+func clear_tape():
+	for tape in get_children():
+		if tape is NinePatchRect:
+			tape.queue_free()

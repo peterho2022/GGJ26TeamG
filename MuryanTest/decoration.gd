@@ -7,6 +7,7 @@ var tape_is_finished: bool = false
 
 func _ready() -> void:
 	canvas.start_tape.connect(func(pos:Vector2):
+		tape_manager.show_hand_start()
 		tape_manager.place_start_point(pos)
 		tape_is_finished = false
 		)
@@ -16,8 +17,11 @@ func _ready() -> void:
 	canvas.end_tape.connect(func():
 		tape_is_finished = true
 		tape_manager.remove_hand_end()
+		tape_manager.hide_hand_start()
 		)
-	
+	canvas.commit_finished.connect(func():
+		tape_manager.clear_tape()
+		)
 func _process(delta: float) -> void:
 	if not tape_is_finished:
 		tape_manager.set_direction()
