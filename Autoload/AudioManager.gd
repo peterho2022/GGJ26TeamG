@@ -1,7 +1,8 @@
 extends Node
 
 enum SFX {
-	RIP_TAPE
+	TAPE_RIP,
+	TAPE_PASTE
 }
 
 enum BGM {
@@ -11,13 +12,16 @@ enum BGM {
 }
 
 @export var sfx_map := {
-	SFX.RIP_TAPE: [
+	SFX.TAPE_RIP: [
 		preload("res://Assets/Audio/sfx/tape_sfx_1.mp3"),
 		preload("res://Assets/Audio/sfx/tape_sfx_2.mp3"),
 		preload("res://Assets/Audio/sfx/tape_sfx_3.mp3"),
 		preload("res://Assets/Audio/sfx/tape_sfx_4.mp3"),
 		preload("res://Assets/Audio/sfx/tape_sfx_5.mp3"),
 		preload("res://Assets/Audio/sfx/tape_sfx_6.mp3"),
+	],
+	SFX.TAPE_PASTE: [
+		preload("res://Assets/Audio/sfx/tape_paste_sfx.mp3"),
 	]
 }
 
