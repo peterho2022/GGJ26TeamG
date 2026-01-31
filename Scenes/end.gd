@@ -5,20 +5,22 @@ class_name EndScene
 @onready var score_label = $Background/VBoxContainer2/ScoreLabel
 @onready var rank_label = $Background/VBoxContainer2/RankLabel	
 
-func setup(final_rank):
+func setup(final_rank, diff):
 	
 	# 1. 顯示數字
 	var final_score = GameManager.total_tape_length
 	score_label.text =  "最終膠帶使用量: %.2f m" % (final_score / 100.0)
 	
 	# 2. 顯示評價
-	rank_label.text = "獲得評價: " + final_rank
+	print('diff = ', diff)
+	print('final_rank = ', final_rank)
+	rank_label.text = "相似度: %s%%, 獲得評價: %s" % [str(int(diff * 100.0)), final_rank]
 	
 	# (選用) 根據評價變色
-	if final_rank == "S":
+	"""if final_rank == "S":
 		rank_label.modulate = Color.GOLD
 	elif final_rank == "D":
-		rank_label.modulate = Color.GRAY
+		rank_label.modulate = Color.GRAY"""
 
 # --- 按鈕功能 ---
 func _on_button_pressed():

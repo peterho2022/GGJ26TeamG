@@ -24,7 +24,6 @@ var game_over : bool = false
 
 # 1. 開始遊戲 (從選單呼叫)
 func start_game():
-	game_over = false
 	current_level_index = 0
 	_load_current_level()
 
@@ -41,6 +40,7 @@ func load_next_level():
 
 # 3. 回到選單 (從結局或暫停選單呼叫)
 func back_to_menu():
+	game_over = false
 	current_level_index = 0
 	reset_tape_length()
 	get_tree().change_scene_to_file("res://scenes/MenuScene.tscn") # 範例路徑

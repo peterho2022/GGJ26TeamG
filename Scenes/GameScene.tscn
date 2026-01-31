@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://brxg4a3asflvk" path="res://Scenes/EndScene.tscn" id="6_x6js8"]
 [ext_resource type="Texture2D" uid="uid://cxnhrlkgiybyo" path="res://Assets/level-1/1-goal.png" id="7_lg2j6"]
 
-[node name="GameScene" type="Node2D" unique_id=512451013 node_paths=PackedStringArray("countdownTimer", "color_palette", "end_scene", "main", "ReferenceImage")]
+[node name="GameScene" type="Node2D" unique_id=512451013 node_paths=PackedStringArray("countdownTimer", "color_palette", "end_scene", "main", "ReferenceImage", "ComparsionVP", "ComparsionVPRoot")]
 script = ExtResource("1_kilg5")
 colorLayers1 = Array[Color]([Color(0.37254903, 0.7490196, 0.38431373, 1), Color(1, 0.8392157, 0.40392157, 1), Color(0.37254903, 0.5686275, 0.7490196, 1)])
 refImage1 = ExtResource("7_lg2j6")
@@ -24,6 +24,8 @@ color_palette = NodePath("CanvasLayer/ColorPalette")
 end_scene = NodePath("CanvasLayer/EndScene")
 main = NodePath("Main")
 ReferenceImage = NodePath("CanvasLayer/ReferenceImage/Image")
+ComparsionVP = NodePath("ComparsionVP")
+ComparsionVPRoot = NodePath("ComparsionVP/Node2D")
 
 [node name="CanvasLayer" parent="." unique_id=1475209388 instance=ExtResource("4_jwv4s")]
 
@@ -74,3 +76,7 @@ texture = ExtResource("7_lg2j6")
 offset = Vector2(-256, 256)
 
 [node name="Main" parent="." unique_id=1294165700 instance=ExtResource("6_kilg5")]
+
+[node name="ComparsionVP" type="SubViewport" parent="." unique_id=1411770834]
+
+[node name="Node2D" type="Node2D" parent="ComparsionVP" unique_id=856654655]

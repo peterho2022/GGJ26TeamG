@@ -193,7 +193,7 @@ func _commit_layer() -> void:
 	# 凍結本回合遮罩：把 ViewportTexture 轉成 ImageTexture（很慢，別每幀做，只在 commit 做）。 :contentReference[oaicite:6]{index=6}
 	var img := _mask_vp.get_texture().get_image()
 	var saved_mask := ImageTexture.create_from_image(img)
-
+	
 	# 新增一層「顏色結果」
 	var layer := Sprite2D.new()
 	layer.texture = _white_tex
