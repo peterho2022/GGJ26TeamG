@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://36u03b0ufqpn"]
+
+[ext_resource type="Script" uid="uid://dv1b6udmjbhmb" path="res://Autoload/LevelTest.gd" id="1_owwry"]
+
+[node name="TestLevel2" type="Node2D" unique_id=264321700]
+script = ExtResource("1_owwry")

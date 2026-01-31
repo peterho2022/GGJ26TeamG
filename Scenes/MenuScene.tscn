@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cabi42rfhbvom"]
+
+[ext_resource type="Script" uid="uid://ckhc0m42wwpjw" path="res://Scenes/menu.gd" id="1_36iol"]
+
+[node name="MenuScene" type="Node2D" unique_id=1783535340]
+script = ExtResource("1_36iol")
