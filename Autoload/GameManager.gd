@@ -13,9 +13,10 @@ var level_list: Array[String] = [
 var menu_scene_path: String = "res://Scenes/MenuScene.tscn" 
 var end_scene_path: String = "res://Scenes/EndScene.tscn"
 
-
 # --- 內部變數 ---
 var current_level_index: int = 0
+
+var total_tape_length: float = 0
 
 # --- 功能函數 ---
 
@@ -58,3 +59,9 @@ func _go_to_end_scene():
 func _change_scene_safe(path: String):
 	print("正在模擬切換到場景: ", path) 
 	get_tree().change_scene_to_file(path)
+
+func add_tape_length(v: float):
+	total_tape_length += v
+	
+func reset_tape_length(v: float):
+	total_tape_length = 0
