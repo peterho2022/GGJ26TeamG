@@ -2,7 +2,7 @@ extends Node2D
 
 
 @export var tape_texture: Texture2D  # 在編輯器中拖入你的膠帶貼圖
-
+@export var canvas: Node2D
 
 @onready var hand_start = $HandStart
 @onready var hand_end: ColorRect = %HandEnd
@@ -32,7 +32,11 @@ func place_start_point(pos: Vector2):
 	current_tape.pivot_offset = Vector2(0, tape_height / 2.0)
 	
 	# 放置位置
-	current_tape.position = pos
+	var rot = current_tape.rotation
+	var right = Vector2(cos(rot), sin(rot))
+	var up = Vector2(-sin(rot), cos(rot))
+	
+	current_tape.position = get_global_mouse_position() - up * tape_height / 2
 	add_child(current_tape)
 	hand_anchor = Control.new()
 	current_tape.add_child(hand_anchor)
@@ -49,7 +53,11 @@ func set_direction():
 		var angle = current_tape.position.angle_to_point(target_pos)
 		current_tape.rotation = angle
 		
-
+	#if GameManager.dir.length() > 0.01:
+		#current_tape.rotation = GameManager.dir.angle()
+	if canvas.current_dir.length() > 0.01:
+		current_tape.rotation = canvas.current_dir.angle()
+	
 # 3. 選擇長度：固定方向，僅拉伸長度
 func set_length(target_pos: Vector2):
 	#hand_end.visible = true

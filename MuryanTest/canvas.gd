@@ -47,6 +47,7 @@ var current_color_index := 0
 @export var current_color_array: Array[Color]
 
 var current_end_local: Vector2
+var current_dir := Vector2.ZERO
 
 func _ready() -> void:
 	_mask_vp = get_node(mask_vp_path) as SubViewport
@@ -108,7 +109,7 @@ func _process(delta: float) -> void:
 		dir = Vector2.RIGHT
 	else:
 		dir = dir.normalized()
-
+	current_dir = dir
 	# 長度在 min~max 間來回變動（sin 波）
 	var s := 0.5 + 0.5 * sin(_t * TAU * length_cycles_per_sec)  # 0..1
 	var length := lerpf(min_len_px, max_len_px, s)
