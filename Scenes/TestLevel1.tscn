@@ -15,6 +15,7 @@ scale = Vector2(1.7148305, 1.7148305)
 texture = ExtResource("2_8h1c6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1473364718]
+visible = false
 
 [node name="DebugLabel" type="Label" parent="CanvasLayer" unique_id=564768624]
 offset_right = 40.0
