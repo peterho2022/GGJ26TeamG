@@ -7,5 +7,5 @@ void fragment() {
     float m = texture(mask_tex, UV).r; // 白=膠帶
     float a = 1.0 - m;                 // 沒遮到才上色
     COLOR = layer_color;
-    COLOR.a *= a;
+    COLOR.a *= ceil(a);
 }
