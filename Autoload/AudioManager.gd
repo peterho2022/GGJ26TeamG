@@ -26,19 +26,29 @@ enum BGM {
 }
 
 @export var bgm_map := {
-	BGM.GAME: preload("res://Assets/Audio/bgm/jazz-background-music-416542.mp3"),
+	BGM.GAME: preload("res://Assets/Audio/bgm/playing.mp3"),
+	BGM.MENU: preload("res://Assets/Audio/bgm/menu.mp3"),
+	BGM.END: preload("res://Assets/Audio/bgm/win.mp3")
 }
 
 @export var max_players := 8
 
-var _players: Array[AudioStreamPlayer] = []
+# SFX 用的一池播放器
+var _sfx_players: Array[AudioStreamPlayer] = []
+# BGM 用的專屬播放器 (新增這個!)
+var _bgm_player: AudioStreamPlayer
 
 func _ready():
 	for i in max_players:
 		var p := AudioStreamPlayer.new()
-		p.bus = "SFX" # 記得在 Audio Bus 裡建 SFX
+		p.bus = "SFX" 
 		add_child(p)
-		_players.append(p)
+		_sfx_players.append(p)
+
+	_bgm_player = AudioStreamPlayer.new()
+	_bgm_player.bus = "Master" 
+	add_child(_bgm_player)
+
 
 func play_sfx(sfx: SFX, volume_db := 0.0, pitch := 1.0):
 	if not sfx_map.has(sfx):
@@ -55,26 +65,36 @@ func play_sfx(sfx: SFX, volume_db := 0.0, pitch := 1.0):
 	player.play()
 
 func _get_free_player() -> AudioStreamPlayer:
-	for p in _players:
+	for p in _sfx_players:
 		if not p.playing:
 			return p
 	return null
+
 
 func play_bgm(bgm: BGM, volume_db := 0.0, pitch := 1.0):
 	if not bgm_map.has(bgm):
 		push_warning("BGM not found: %s" % bgm)
 		return
-
-	var player := _get_free_player()
-	if player == null:
+	
+	var stream = bgm_map[bgm]
+	
+	# 邏輯判斷：如果現在已經在播這首歌，就只要調整音量，不要重播
+	if _bgm_player.stream == stream and _bgm_player.playing:
+		_bgm_player.volume_db = volume_db # 更新音量
 		return
 
-	player.stream = bgm_map[bgm]
-	player.volume_db = volume_db
-	player.pitch_scale = pitch
-	player.play()
+	# 如果是不同的歌，就切換
+	_bgm_player.stop()
+	_bgm_player.stream = stream
+	_bgm_player.volume_db = volume_db
+	_bgm_player.pitch_scale = pitch
+	_bgm_player.play()
 
 func stop_all():
-	for p in _players:
+	# 停止所有 SFX
+	for p in _sfx_players:
 		if p.playing:
 			p.stop()
+	# 停止 BGM
+	if _bgm_player.playing:
+		_bgm_player.stop()
