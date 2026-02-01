@@ -9,7 +9,7 @@ var pos_shown: Vector2
 func _ready():
 	pos_shown = position
 	# 這裡可以根據你的需求調整隱藏位置
-	pos_hidden = Vector2(-size.x - 300, pos_shown.y) 
+	pos_hidden = Vector2(-size.x - 350, pos_shown.y) 
 	position = pos_hidden
 
 	# 關鍵：改為連結 Detector 的訊號，而不是 self 的訊號

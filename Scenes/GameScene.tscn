@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cqne4fbxwj7s1"]
+[gd_scene format=3 uid="uid://b4fq0apfdhdvs"]
 
-[ext_resource type="PackedScene" uid="uid://usjhj47xc03v" path="res://Scenes/ColorPalette.tscn" id="1_3mbwn"]
+[ext_resource type="PackedScene" path="res://Scenes/ColorPalette.tscn" id="1_3mbwn"]
 [ext_resource type="Script" uid="uid://583fs8a7oadf" path="res://Scenes/GameSceneController.gd" id="1_kilg5"]
 [ext_resource type="Texture2D" uid="uid://dgqjq341rysm8" path="res://Assets/level1.png" id="2_6vvcf"]
 [ext_resource type="PackedScene" uid="uid://dngnru2h8nwxh" path="res://Scenes/HintText.tscn" id="2_jwv4s"]
@@ -59,10 +59,10 @@ scale = Vector2(0.5, 0.5)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 48.0
-offset_top = -440.0
-offset_right = 48.0
-offset_bottom = -440.0
+offset_left = 51.0
+offset_top = -510.0
+offset_right = 51.0
+offset_bottom = -510.0
 grow_vertical = 0
 
 [node name="CountdownTimer" parent="CanvasLayer" unique_id=307437381 instance=ExtResource("3_lohlh")]
