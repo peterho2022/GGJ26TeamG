@@ -11,9 +11,11 @@ tape_texture = ExtResource("2_dc4ui")
 
 [node name="HandStart" type="Sprite2D" parent="." unique_id=684110395]
 z_index = 55
-position = Vector2(-100, 150)
+position = Vector2(-100, 200)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_wki3b")
+centered = false
+offset = Vector2(-500, -300)
 
 [node name="HandEnd" parent="." unique_id=1967817569 instance=ExtResource("3_on620")]
 unique_name_in_owner = true

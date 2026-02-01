@@ -132,6 +132,8 @@ func _process(delta: float) -> void:
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			if _state != PlaceState.LENGTH_TIMING:
+				return
 			#print("wheel up, factor=", event.factor)
 			tape_width_px -= 10
 			tape_width_px = clamp(tape_width_px, min_width_px, max_width_px)
@@ -139,6 +141,8 @@ func _input(event):
 			
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			#print("wheel down, factor=", event.factor)
+			if _state != PlaceState.LENGTH_TIMING:
+				return
 			tape_width_px += 10
 			tape_width_px = clamp(tape_width_px, min_width_px, max_width_px)
 			change_tape_size.emit(tape_width_px)

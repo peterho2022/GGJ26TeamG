@@ -14,12 +14,15 @@ var hand_anchor: Control = null
 var tape_height := 120
 var temp_tape_height := 0
 var end_tape_direction := 0
+var original_hand_end_offset
 
 func _ready():
 	hand_start.visible = false
+	original_hand_end_offset = hand_end.offset
 	remove_child(hand_end)
 	#HAND_END.visible = false
 	#current_tape.add_child(HAND_END)
+	
 
 func set_tape_height(value):
 	var prev = tape_height
@@ -80,6 +83,8 @@ func place_start_point(pos: Vector2, initPos : Vector2):
 	current_tape.add_child(hand_anchor)
 	hand_anchor.set_anchors_preset(Control.PRESET_CENTER_RIGHT)
 	hand_anchor.add_child(hand_end)
+	
+	hand_end.offset = original_hand_end_offset + Vector2(0, tape_height / 2.0)
 	
 	hand_start.global_position = pos
 	hand_start.visible = true
