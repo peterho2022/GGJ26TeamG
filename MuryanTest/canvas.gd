@@ -154,18 +154,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			_finalize_current_tape()
 			end_tape.emit()
 
-	# 取消（可選）：右鍵或 ESC 取消這次預覽
-	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed) \
-		or event.is_action_pressed("ui_cancel"):
-		_cancel_preview()
-
-	# Undo：如果正在預覽，Undo = 取消預覽；如果空閒，Undo = 移除上一段永久膠帶
-	if event.is_action_pressed("undo_tape"):
-		if _state == PlaceState.LENGTH_TIMING:
-			_cancel_preview()
-		else:
-			_undo_last_tape()
-
 	# 上色確認：建議只允許在 IDLE（避免你還在跑長度時就 commit）
 	if event.is_action_pressed("commit_color"):
 		if current_color_index >= current_color_array.size():
@@ -200,6 +188,7 @@ func _make_tape_poly(a: Vector2, b: Vector2, half_w: float) -> PackedVector2Arra
 
 func _undo_last_tape() -> void:
 	var c := _mask_root.get_child_count()
+	print('c = ', c)
 	if c > 0:
 		_mask_root.get_child(c - 1).queue_free()
 

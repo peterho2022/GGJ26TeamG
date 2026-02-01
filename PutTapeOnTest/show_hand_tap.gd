@@ -84,12 +84,10 @@ func set_direction():
 		# 計算起點到目前滑鼠的角度
 		var angle = current_tape.position.angle_to_point(target_pos)
 		current_tape.rotation = angle
-		
-	#if GameManager.dir.length() > 0.01:
-		#current_tape.rotation = GameManager.dir.angle()
-	if canvas.current_dir.length() > 0.01:
-		current_tape.rotation = canvas.current_dir.angle()
-		hand_start.rotation = canvas.current_dir.angle()
+
+		if canvas.current_dir.length() > 0.01:
+			current_tape.rotation = canvas.current_dir.angle()
+			hand_start.rotation = canvas.current_dir.angle()
 	
 # 3. 選擇長度：固定方向，僅拉伸長度
 func set_length(target_pos: Vector2):
@@ -125,3 +123,9 @@ func clear_tape():
 	for tape in get_children():
 		if tape is NinePatchRect:
 			tape.queue_free()
+
+func clear_last_tape():
+	var c := get_child_count()
+	if c > 0:
+		if get_child(c - 1) is NinePatchRect:
+			get_child(c - 1).queue_free()
