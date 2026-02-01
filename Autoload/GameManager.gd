@@ -43,7 +43,7 @@ func back_to_menu():
 	game_over = false
 	current_level_index = 0
 	reset_tape_length()
-	get_tree().change_scene_to_file("res://scenes/MenuScene.tscn") # 範例路徑
+	get_tree().change_scene_to_file("res://Scenes/MenuScene.tscn") # 範例路徑
 
 # --- 核心邏輯 (包含安全檢查) ---
 
