@@ -12,9 +12,16 @@
 [ext_resource type="PackedScene" uid="uid://brxg4a3asflvk" path="res://Scenes/EndScene.tscn" id="6_x6js8"]
 [ext_resource type="Texture2D" uid="uid://cxnhrlkgiybyo" path="res://Assets/level-1/1-goal.png" id="7_lg2j6"]
 [ext_resource type="Texture2D" uid="uid://bdsokkctd75vb" path="res://Assets/background.png" id="11_cr6v8"]
+[ext_resource type="FontFile" uid="uid://cy10jo6dn0wmo" path="res://Assets/JejuHallasan.ttf" id="12_f43ej"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7rq2r"]
+font_size = 60
+outline_size = 2
+shadow_size = 5
 
 [node name="GameScene" type="Node2D" unique_id=512451013 node_paths=PackedStringArray("countdownTimer", "color_palette", "end_scene", "main", "ReferenceImage", "ComparsionVP", "ComparsionVPRoot")]
 script = ExtResource("1_kilg5")
+totalTime1 = 10.0
 colorLayers1 = Array[Color]([Color(0.24705882, 0.34901962, 0.7019608, 1), Color(1, 0.8392157, 0.32156864, 1), Color(0.9490196, 0.25490198, 0.25490198, 1)])
 refImage1 = ExtResource("2_6vvcf")
 totalTime2 = 300.0
@@ -83,6 +90,17 @@ scale = Vector2(0.75, 0.75)
 [node name="Image" type="Sprite2D" parent="CanvasLayer/ReferenceImage" unique_id=2077270915]
 texture = ExtResource("7_lg2j6")
 offset = Vector2(-256, 256)
+
+[node name="Label2" type="Label" parent="CanvasLayer/ReferenceImage" unique_id=1294468205]
+layout_mode = 0
+offset_left = -344.0
+offset_top = 532.0
+offset_right = -164.0
+offset_bottom = 592.0
+theme_override_fonts/font = ExtResource("12_f43ej")
+theme_override_font_sizes/font_size = 44
+text = "Target"
+label_settings = SubResource("LabelSettings_7rq2r")
 
 [node name="Main" parent="." unique_id=1294165700 instance=ExtResource("6_kilg5")]
 
