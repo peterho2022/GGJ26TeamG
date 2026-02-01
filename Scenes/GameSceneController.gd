@@ -81,6 +81,12 @@ func _ready() -> void:
 	
 	AudioManager.play_bgm(AudioManager.BGM.GAME, -10.0)
 
+# cheats
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_P:
+			_on_timeout()
+			
 func _on_tape_start():
 	AudioManager.play_sfx(AudioManager.SFX.TAPE_RIP)
 	pass
@@ -166,8 +172,11 @@ func compare_images(a: Image, b: Image, threshold := 0.01) -> float:
 
 	for y in b.get_height():
 		for x in b.get_width():
-			var aPixel = a.get_pixel(1920 / 2 - 256 + x, 1080 / 2 - 256 + y)
 			var bPixel = b.get_pixel(x, y)
+			if color_distance(bPixel, Color(1, 1, 1, 1)) < threshold:
+				# skip white pixels
+				continue
+			var aPixel = a.get_pixel(1920 / 2 - 256 + x, 1080 / 2 - 256 + y)
 			if bPixel.a > threshold:
 				if color_distance(aPixel, bPixel) > threshold:
 					diff += 1
