@@ -116,7 +116,7 @@ func _show_end_scene():
 	end_scene.setup(rank, diff)
 	end_scene.visible = true
 	AudioManager.stop_all()
-	AudioManager.play_bgm(AudioManager.BGM.END)
+	AudioManager.play_bgm(AudioManager.BGM.END, -10.0)
 
 func calculate_rank() -> String:
 	# 依照你的規則：S(<=5), A(<=7), B(<=10), C(<=14), D(>14)
