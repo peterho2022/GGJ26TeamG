@@ -5,6 +5,10 @@ class_name EndScene
 @onready var score_label = $Background/VBoxContainer2/ScoreLabel
 @onready var rank_label = $Background/VBoxContainer2/RankLabel
 @onready var button = $Background/VBoxContainer/Button
+@onready var show_hide_button = $Background/Button
+
+@export var regularColor : Color
+@export var clickedColor : Color
 
 var show = true
 func show_hide_ui():
@@ -12,8 +16,11 @@ func show_hide_ui():
 	score_label.visible = show
 	rank_label.visible = show
 	button.visible = show
+	show_hide_button.modulate = regularColor if show else clickedColor
 
 func setup(final_rank, diff):
+	
+	show_hide_button.modulate = regularColor if show else clickedColor
 	
 	# 1. 顯示數字
 	var final_score = GameManager.total_tape_length
