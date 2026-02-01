@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b0retoaklol8q" path="res://Scenes/end.gd" id="1_ryui2"]
 [ext_resource type="FontFile" uid="uid://cy10jo6dn0wmo" path="res://Assets/JejuHallasan.ttf" id="2_ckv4c"]
 [ext_resource type="Texture2D" uid="uid://cdoucm8stvkgd" path="res://Assets/tape-new.png" id="3_hv2cy"]
+[ext_resource type="Texture2D" uid="uid://cby6buoapkxyd" path="res://Assets/ui/color-2.png" id="4_hv2cy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nb8ct"]
 texture = ExtResource("3_hv2cy")
@@ -99,4 +100,13 @@ text = "A"
 label_settings = SubResource("LabelSettings_ckv4c")
 horizontal_alignment = 1
 
+[node name="Button" type="Button" parent="Background" unique_id=1311925750]
+z_index = 1999
+layout_mode = 0
+offset_right = 582.0
+offset_bottom = 582.0
+icon = ExtResource("4_hv2cy")
+flat = true
+
 [connection signal="pressed" from="Background/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="button_down" from="Background/Button" to="." method="_on_button_button_down"]

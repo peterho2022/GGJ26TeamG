@@ -3,7 +3,15 @@ extends Node
 class_name EndScene
 
 @onready var score_label = $Background/VBoxContainer2/ScoreLabel
-@onready var rank_label = $Background/VBoxContainer2/RankLabel	
+@onready var rank_label = $Background/VBoxContainer2/RankLabel
+@onready var button = $Background/VBoxContainer/Button
+
+var show = true
+func show_hide_ui():
+	show = !show
+	score_label.visible = show
+	rank_label.visible = show
+	button.visible = show
 
 func setup(final_rank, diff):
 	
@@ -26,3 +34,7 @@ func setup(final_rank, diff):
 # --- 按鈕功能 ---
 func _on_button_pressed():
 	GameManager.back_to_menu()
+
+
+func _on_button_button_down() -> void:
+	show_hide_ui()
