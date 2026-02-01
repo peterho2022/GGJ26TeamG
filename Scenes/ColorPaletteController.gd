@@ -49,6 +49,7 @@ func setup(inColors: Array[Color]):
 		colors[i].modulate = inColors[i]
 		var res = scale_up if i == next_id else scale_down
 		colors[i].scale = Vector2.ONE * res
+	brush.modulate = colors[0].modulate
 
 func _process(delta):	
 	palette.rotation = lerp_angle(palette.rotation, desire_rotate_angle, rotate_speed * delta)

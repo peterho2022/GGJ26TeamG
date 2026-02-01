@@ -1,9 +1,14 @@
-[gd_scene format=3 uid="uid://b4fq0apfdhdvs"]
+[gd_scene format=3 uid="uid://cqne4fbxwj7s1"]
 
 [ext_resource type="PackedScene" path="res://Scenes/ColorPalette.tscn" id="1_3mbwn"]
 [ext_resource type="Script" uid="uid://583fs8a7oadf" path="res://Scenes/GameSceneController.gd" id="1_kilg5"]
+[ext_resource type="PackedScene" uid="uid://usjhj47xc03v" path="res://Scenes/ColorPalette.tscn" id="1_3mbwn"]
+[ext_resource type="Script" uid="uid://583fs8a7oadf" path="res://Scenes/GameSceneController.gd" id="1_kilg5"]
+[ext_resource type="Texture2D" uid="uid://dgqjq341rysm8" path="res://Assets/level1.png" id="2_6vvcf"]
 [ext_resource type="PackedScene" uid="uid://dngnru2h8nwxh" path="res://Scenes/HintText.tscn" id="2_jwv4s"]
-[ext_resource type="PackedScene" path="res://Scenes/CountdownTimer.tscn" id="3_lohlh"]
+[ext_resource type="Texture2D" uid="uid://dwui0q6ke2sfm" path="res://Assets/level2.png" id="3_cr6v8"]
+[ext_resource type="PackedScene" uid="uid://cr1xd40m6c63g" path="res://Scenes/CountdownTimer.tscn" id="3_lohlh"]
+[ext_resource type="Texture2D" uid="uid://cedrmqtr8pd0e" path="res://Assets/level3.png" id="4_f43ej"]
 [ext_resource type="PackedScene" uid="uid://blc1ihyn1ej04" path="res://Scenes/canvas_layer.tscn" id="4_jwv4s"]
 [ext_resource type="PackedScene" uid="uid://jid3ns4n5sbs" path="res://MuryanTest/main.tscn" id="6_kilg5"]
 [ext_resource type="PackedScene" uid="uid://brxg4a3asflvk" path="res://Scenes/EndScene.tscn" id="6_x6js8"]
@@ -11,14 +16,14 @@
 
 [node name="GameScene" type="Node2D" unique_id=512451013 node_paths=PackedStringArray("countdownTimer", "color_palette", "end_scene", "main", "ReferenceImage", "ComparsionVP", "ComparsionVPRoot")]
 script = ExtResource("1_kilg5")
-colorLayers1 = Array[Color]([Color(0.37254903, 0.7490196, 0.38431373, 1), Color(1, 0.8392157, 0.40392157, 1), Color(0.37254903, 0.5686275, 0.7490196, 1)])
-refImage1 = ExtResource("7_lg2j6")
-totalTime2 = 150.0
-colorLayers2 = Array[Color]([Color(0.37254903, 0.7490196, 0.38431373, 1), Color(1, 0.8392157, 0.40392157, 1), Color(0.37254903, 0.5686275, 0.7490196, 1)])
-refImage2 = ExtResource("7_lg2j6")
-totalTime3 = 300.0
-colorLayers3 = Array[Color]([Color(0.37254903, 0.7490196, 0.38431373, 1), Color(1, 0.8392157, 0.40392157, 1), Color(0.37254903, 0.5686275, 0.7490196, 1)])
-refImage3 = ExtResource("7_lg2j6")
+colorLayers1 = Array[Color]([Color(0.24705882, 0.34901962, 0.7019608, 1), Color(1, 0.8392157, 0.32156864, 1), Color(0.9490196, 0.25490198, 0.25490198, 1)])
+refImage1 = ExtResource("2_6vvcf")
+totalTime2 = 300.0
+colorLayers2 = Array[Color]([Color(0.5647059, 0.74509805, 0.42745098, 1), Color(0.15294118, 0.49019608, 0.6313726, 1), Color(0.2627451, 0.6666667, 0.54509807, 1), Color(0.12941177, 0.09019608, 0.27450982, 1)])
+refImage2 = ExtResource("3_cr6v8")
+totalTime3 = 600.0
+colorLayers3 = Array[Color]([Color(0.34117648, 0.45882353, 0.5647059, 1), Color(0.972549, 0.5882353, 0.11764706, 1), Color(0.7882353, 0.34509805, 0.26666668, 1), Color(0.32156864, 0.58431375, 0.21568628, 1)])
+refImage3 = ExtResource("4_f43ej")
 countdownTimer = NodePath("CanvasLayer/CountdownTimer")
 color_palette = NodePath("CanvasLayer/ColorPalette")
 end_scene = NodePath("CanvasLayer/EndScene")
