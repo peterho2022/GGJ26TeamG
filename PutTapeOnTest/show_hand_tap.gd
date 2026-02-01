@@ -1,13 +1,15 @@
 extends Node2D
 
-
 @export var tape_texture: Texture2D  # 在編輯器中拖入你的膠帶貼圖
 @export var canvas: Node2D
+
+@export var tape_texture_left_padding: Texture2D
 
 @onready var hand_start = $HandStart
 @onready var hand_end: Sprite2D = %HandEnd
 
 var current_tape: NinePatchRect = null
+var current_tape_left_padding: NinePatchRect = null
 var hand_anchor: Control = null
 var tape_height := 40
 
@@ -27,8 +29,10 @@ func place_start_point(pos: Vector2):
 	current_tape.z_as_relative = false
 	
 	# 設定 NinePatch 的邊界，確保縮放時兩頭不變形 (數值依貼圖而定)
-	current_tape.patch_margin_left = 16
-	current_tape.patch_margin_right = 16
+	current_tape.patch_margin_left = 50
+	current_tape.patch_margin_right = 50
+	
+	current_tape.patch_margin_left = 50
 	
 	# 設定中心點 (Pivot) 為左側中心
 	# 假設膠帶寬度預設為 40
@@ -42,6 +46,14 @@ func place_start_point(pos: Vector2):
 	
 	current_tape.position = get_global_mouse_position() - up * tape_height / 2
 	add_child(current_tape)
+	
+	current_tape_left_padding = NinePatchRect.new()
+	current_tape_left_padding.texture = tape_texture_left_padding
+	current_tape_left_padding.size = Vector2(150, tape_height)
+	current_tape_left_padding.pivot_offset = Vector2(0, tape_height / 2.0)
+	current_tape_left_padding.position = right * -50
+	current_tape.add_child(current_tape_left_padding)
+	
 	hand_anchor = Control.new()
 	current_tape.add_child(hand_anchor)
 	hand_anchor.set_anchors_preset(Control.PRESET_CENTER_RIGHT)
