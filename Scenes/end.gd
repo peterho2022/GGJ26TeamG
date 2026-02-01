@@ -14,7 +14,8 @@ func setup(final_rank, diff):
 	# 2. 顯示評價
 	print('diff = ', diff)
 	print('final_rank = ', final_rank)
-	rank_label.text = "相似度: %s%%, 獲得評價: %s" % [str(int(diff * 100.0)), final_rank]
+	# rank_label.text = "相似度: %s%%, 獲得評價: %s" % [str(int(diff * 100.0)), final_rank]
+	rank_label.text = "相似度: %s%%" % str(int(diff * 100.0))
 	
 	# (選用) 根據評價變色
 	"""if final_rank == "S":
