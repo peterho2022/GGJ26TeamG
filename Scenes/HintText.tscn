@@ -1,22 +1,41 @@
-[gd_scene format=3 uid="uid://yb7yjlml87ml"]
+[gd_scene format=3 uid="uid://dngnru2h8nwxh"]
+
+[ext_resource type="Texture2D" uid="uid://ckaxylsljdlx5" path="res://Assets/note.png" id="1_o5d6x"]
+[ext_resource type="PackedScene" uid="uid://3y8fymnw8dck" path="res://Scenes/Guide Anims/guide2.tscn" id="2_8dliq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_61f7q"]
-font_size = 25
+font_size = 130
+font_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Control" unique_id=2145139494]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="Label" type="Label" parent="." unique_id=973282112]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2049977738]
+layout_mode = 0
+offset_left = -223.0
+offset_top = -71.0
+offset_right = 2337.0
+offset_bottom = 1529.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_o5d6x")
+
+[node name="Guide2" parent="TextureRect" unique_id=740965230 instance=ExtResource("2_8dliq")]
+position = Vector2(1543.333, 743.33344)
+rotation = 1.1885692
+scale = Vector2(1.9333333, 1.9333333)
+autoplay = "default"
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=973282112]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -149.0
-offset_right = 300.0
-grow_vertical = 0
-text = "點擊滑鼠選擇起始點
-滑動滑鼠選擇旋轉方向
-再次點擊滑鼠決定旋轉方向
-點擊滑鼠決定膠帶長度"
+offset_left = 860.0
+offset_top = 376.66666
+offset_right = 1341.0
+offset_bottom = 1549.6666
+text = "Click
+
+Slide
+Scroll
+
+Click"
 label_settings = SubResource("LabelSettings_61f7q")
