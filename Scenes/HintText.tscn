@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dngnru2h8nwxh"]
 
-[ext_resource type="Script" path="res://Scenes/hint_text.gd" id="1_8dliq"]
+[ext_resource type="Script" uid="uid://nh4y063rewy6" path="res://Scenes/hint_text.gd" id="1_8dliq"]
 [ext_resource type="Texture2D" uid="uid://ckaxylsljdlx5" path="res://Assets/note.png" id="1_o5d6x"]
 [ext_resource type="PackedScene" uid="uid://3y8fymnw8dck" path="res://Scenes/Guide Anims/guide2.tscn" id="2_8dliq"]
 [ext_resource type="FontFile" uid="uid://cy10jo6dn0wmo" path="res://Assets/JejuHallasan.ttf" id="4_e3jpf"]
-[ext_resource type="Texture2D" uid="uid://c84i31n6muy6p" path="res://Assets/Guide/guide-1.png" id="4_mudad"]
-[ext_resource type="Texture2D" uid="uid://bu4ya8gcai3il" path="res://Assets/Guide/guide-2.png" id="5_mj6uc"]
-[ext_resource type="Texture2D" uid="uid://2cuf0hmn83rb" path="res://Assets/Guide/guide-3.png" id="6_4unvj"]
-[ext_resource type="Texture2D" uid="uid://s2e1r5m2cafo" path="res://Assets/Guide/guide-4.png" id="7_e3jpf"]
+[ext_resource type="Texture2D" uid="uid://tv2kvbsnrhea" path="res://Assets/Guide/hint1.png" id="5_e3jpf"]
+[ext_resource type="Texture2D" uid="uid://dmj4nffgjwt2i" path="res://Assets/Guide/hint2.png" id="6_bee43"]
+[ext_resource type="Texture2D" uid="uid://bxx61ykenkw5k" path="res://Assets/Guide/hint3.png" id="7_k6lfq"]
+[ext_resource type="Texture2D" uid="uid://dbk064fmunw88" path="res://Assets/Guide/hint4.png" id="8_e1dn1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_61f7q"]
 line_spacing = 150.0
@@ -52,39 +52,39 @@ label_settings = SubResource("LabelSettings_61f7q")
 
 [node name="Step1" type="TextureRect" parent="TextureRect" unique_id=573211230]
 layout_mode = 0
-offset_left = 1249.9999
-offset_top = 343.3333
-offset_right = 1456.9999
-offset_bottom = 470.3333
-scale = Vector2(2.3, 2.3)
-texture = ExtResource("4_mudad")
+offset_left = 1356.6667
+offset_top = 369.99997
+offset_right = 1563.6667
+offset_bottom = 496.99997
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("5_e3jpf")
 
 [node name="Step2" type="TextureRect" parent="TextureRect" unique_id=662437642]
 layout_mode = 0
-offset_left = 1303.3331
+offset_left = 1356.6666
 offset_top = 636.6666
-offset_right = 1502.3331
+offset_right = 1555.6666
 offset_bottom = 770.6666
-scale = Vector2(2.3, 2.3)
-texture = ExtResource("5_mj6uc")
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("6_bee43")
 
 [node name="Step3" type="TextureRect" parent="TextureRect" unique_id=876115925]
 layout_mode = 0
-offset_left = 1330.0
-offset_top = 956.6665
-offset_right = 1494.0
-offset_bottom = 1082.6665
-scale = Vector2(2.3, 2.3)
-texture = ExtResource("6_4unvj")
+offset_left = 1383.3333
+offset_top = 956.6666
+offset_right = 1547.3333
+offset_bottom = 1082.6666
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("7_k6lfq")
 
 [node name="Step4" type="TextureRect" parent="TextureRect" unique_id=437023320]
 layout_mode = 0
-offset_left = 1303.3333
-offset_top = 1196.6666
-offset_right = 1524.3333
-offset_bottom = 1356.6666
-scale = Vector2(2, 2)
-texture = ExtResource("7_e3jpf")
+offset_left = 1383.3333
+offset_top = 1223.3333
+offset_right = 1604.3333
+offset_bottom = 1383.3333
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("8_e1dn1")
 
 [node name="Detector" type="TextureRect" parent="." unique_id=1026705313]
 layout_mode = 0
