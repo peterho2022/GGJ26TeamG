@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dngnru2h8nwxh"]
 
+[ext_resource type="Script" uid="uid://nh4y063rewy6" path="res://Scenes/hint_text.gd" id="1_8dliq"]
 [ext_resource type="Texture2D" uid="uid://ckaxylsljdlx5" path="res://Assets/note.png" id="1_o5d6x"]
 [ext_resource type="PackedScene" uid="uid://3y8fymnw8dck" path="res://Scenes/Guide Anims/guide2.tscn" id="2_8dliq"]
 
@@ -7,9 +8,10 @@
 font_size = 130
 font_color = Color(0, 0, 0, 1)
 
-[node name="Node2D" type="Control" unique_id=2145139494]
+[node name="Control" type="Control" unique_id=2145139494]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_8dliq")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2049977738]
 layout_mode = 0
@@ -21,7 +23,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_o5d6x")
 
 [node name="Guide2" parent="TextureRect" unique_id=740965230 instance=ExtResource("2_8dliq")]
-position = Vector2(1543.333, 743.33344)
+position = Vector2(1490, 756.6665)
 rotation = 1.1885692
 scale = Vector2(1.9333333, 1.9333333)
 autoplay = "default"
@@ -39,3 +41,9 @@ Scroll
 
 Click"
 label_settings = SubResource("LabelSettings_61f7q")
+
+[node name="Detector" type="TextureRect" parent="." unique_id=1026705313]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(8.302588, 9.896244)
