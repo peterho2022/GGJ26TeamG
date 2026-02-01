@@ -6,6 +6,7 @@ signal start_tape(mouse_global_position: Vector2)
 signal change_tape_length(length: float)
 signal end_tape
 signal commit_finished
+signal change_tape_size(width)
 
 @export var paper_color: Color = Color(0.95, 0.94, 0.90, 1.0) # 紙色
 @export var tape_color: Color = Color(1.0, 0.92, 0.55, 1.0)   # 膠帶色
@@ -13,6 +14,8 @@ signal commit_finished
 
 @export var canvas_size: Vector2i = Vector2i(1024, 1024)
 @export var tape_width_px: float = 24.0
+@export var min_len_px: float = 12.0
+@export var max_len_px: float = 260.0
 
 @export var mask_vp_path: NodePath
 @export var mask_root_path: NodePath
@@ -36,8 +39,11 @@ var _start_local := Vector2.ZERO
 enum PlaceState { IDLE, LENGTH_TIMING }
 var _state: PlaceState = PlaceState.IDLE
 
-@export var min_len_px: float = 40.0
-@export var max_len_px: float = 260.0
+
+
+@export var min_width_px: float = 40.0
+@export var max_width_px: float = 260.0
+
 @export var length_cycles_per_sec: float = 1.2   # 每秒來回幾次（節奏）
 
 var _anchor_local := Vector2.ZERO
@@ -123,6 +129,20 @@ func _process(delta: float) -> void:
 	#current_end_local = _update_preview_polygon(_anchor_local, end_local)
 	_update_preview_polygon(_anchor_local, end_local)
 
+func _input(event):
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			#print("wheel up, factor=", event.factor)
+			tape_width_px -= 10
+			tape_width_px = clamp(tape_width_px, min_width_px, max_width_px)
+			change_tape_size.emit(tape_width_px)
+			
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			#print("wheel down, factor=", event.factor)
+			tape_width_px += 10
+			tape_width_px = clamp(tape_width_px, min_width_px, max_width_px)
+			change_tape_size.emit(tape_width_px)
+			
 func _unhandled_input(event: InputEvent) -> void:
 	if GameManager.game_over:
 		return
@@ -133,18 +153,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif _state == PlaceState.LENGTH_TIMING:
 			_finalize_current_tape()
 			end_tape.emit()
-
-	# 取消（可選）：右鍵或 ESC 取消這次預覽
-	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed) \
-		or event.is_action_pressed("ui_cancel"):
-		_cancel_preview()
-
-	# Undo：如果正在預覽，Undo = 取消預覽；如果空閒，Undo = 移除上一段永久膠帶
-	if event.is_action_pressed("undo_tape"):
-		if _state == PlaceState.LENGTH_TIMING:
-			_cancel_preview()
-		else:
-			_undo_last_tape()
 
 	# 上色確認：建議只允許在 IDLE（避免你還在跑長度時就 commit）
 	if event.is_action_pressed("commit_color"):
@@ -180,6 +188,7 @@ func _make_tape_poly(a: Vector2, b: Vector2, half_w: float) -> PackedVector2Arra
 
 func _undo_last_tape() -> void:
 	var c := _mask_root.get_child_count()
+	print('c = ', c)
 	if c > 0:
 		_mask_root.get_child(c - 1).queue_free()
 

@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://s2e1r5m2cafo" path="res://Assets/Guide/guide-4.png" id="7_e3jpf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_61f7q"]
-font_size = 190
+line_spacing = 80.0
+font_size = 150
 font_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control" unique_id=2145139494]
@@ -47,38 +48,38 @@ label_settings = SubResource("LabelSettings_61f7q")
 
 [node name="Step1" type="TextureRect" parent="TextureRect" unique_id=573211230]
 layout_mode = 0
-offset_left = 1350.0
-offset_top = 386.6667
-offset_right = 1557.0
-offset_bottom = 513.6667
-scale = Vector2(1.91, 1.91)
+offset_left = 1249.9999
+offset_top = 343.3333
+offset_right = 1456.9999
+offset_bottom = 470.3333
+scale = Vector2(2.3, 2.3)
 texture = ExtResource("4_mudad")
 
 [node name="Step2" type="TextureRect" parent="TextureRect" unique_id=662437642]
 layout_mode = 0
-offset_left = 1373.3333
-offset_top = 639.99994
-offset_right = 1572.3333
-offset_bottom = 773.99994
-scale = Vector2(2.01, 2.01)
+offset_left = 1303.3331
+offset_top = 636.6666
+offset_right = 1502.3331
+offset_bottom = 770.6666
+scale = Vector2(2.3, 2.3)
 texture = ExtResource("5_mj6uc")
 
 [node name="Step3" type="TextureRect" parent="TextureRect" unique_id=876115925]
 layout_mode = 0
-offset_left = 1396.6665
-offset_top = 930.0
-offset_right = 1560.6665
-offset_bottom = 1056.0
-scale = Vector2(1.98, 1.98)
+offset_left = 1330.0
+offset_top = 956.6665
+offset_right = 1494.0
+offset_bottom = 1082.6665
+scale = Vector2(2.3, 2.3)
 texture = ExtResource("6_4unvj")
 
 [node name="Step4" type="TextureRect" parent="TextureRect" unique_id=437023320]
 layout_mode = 0
-offset_left = 1416.6667
+offset_left = 1303.3333
 offset_top = 1196.6666
-offset_right = 1637.6667
+offset_right = 1524.3333
 offset_bottom = 1356.6666
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 texture = ExtResource("7_e3jpf")
 
 [node name="Detector" type="TextureRect" parent="." unique_id=1026705313]

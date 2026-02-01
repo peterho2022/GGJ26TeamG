@@ -26,6 +26,7 @@ extends Node2D
 
 var canvas : Canvas
 var current_index = 0
+var showHandTap
 
 var colorLayers
 var scoreRange
@@ -75,6 +76,7 @@ func _ready() -> void:
 	ReferenceImage.texture = refImage
 	
 	ResultsRoot = $Main/Canvas/ResultsRoot
+	showHandTap = $Main/Decoration/ShowHandTape
 		
 	ComparsionVP.size = Vector2i(1920, 1080) # don't know how to get exact area of middle combined part, get whole screen instead
 	ComparsionVP.render_target_update_mode = SubViewport.UPDATE_ALWAYS
@@ -86,7 +88,25 @@ func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_P:
 			_on_timeout()
-			
+		if event.keycode == KEY_BRACKETLEFT:
+			stop_timer()
+		if event.keycode == KEY_BRACKETRIGHT:
+			resume_timer()
+		
+		# 取消（可選）：右鍵或 ESC 取消這次預覽
+		if event.is_action_pressed("ui_cancel"):
+			canvas._cancel_preview()
+
+		# Undo：如果正在預覽，Undo = 取消預覽；如果空閒，Undo = 移除上一段永久膠帶
+		if event.is_action_pressed("undo_tape"):
+			if canvas._state == Canvas.PlaceState.LENGTH_TIMING:
+				pass # buggy, do nothing
+			else:
+				showHandTap.tape_end()
+				canvas._undo_last_tape()
+				showHandTap.clear_last_tape()
+				showHandTap.hide_hand_start()
+
 func _on_tape_start():
 	AudioManager.play_sfx(AudioManager.SFX.TAPE_RIP)
 	pass
@@ -182,3 +202,9 @@ func compare_images(a: Image, b: Image, threshold := 0.01) -> float:
 					diff += 1
 	print('raw diff = ', diff)
 	return 1.0 - float(diff) / total
+
+func stop_timer():
+	countdownTimer.pause()
+	
+func resume_timer():
+	countdownTimer.resume()

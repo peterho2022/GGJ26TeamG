@@ -11,7 +11,9 @@ extends Node2D
 var current_tape: NinePatchRect = null
 var current_tape_left_padding: NinePatchRect = null
 var hand_anchor: Control = null
-var tape_height := 40
+var tape_height := 120: set = set_tape_height
+var temp_tape_height := 0
+var end_tape_direction := 0
 
 func _ready():
 	hand_start.visible = false
@@ -19,6 +21,20 @@ func _ready():
 	#HAND_END.visible = false
 	#current_tape.add_child(HAND_END)
 
+func set_tape_height(value):
+	temp_tape_height = tape_height
+	tape_height = value
+	if current_tape:
+		current_tape.size.y = tape_height
+		current_tape.pivot_offset = Vector2(0, tape_height / 2.0)
+	#var temp = tape_height - temp_tape_height
+	#if temp > 0:
+		#end_tape_direction = 1
+	#elif temp < 0:
+		#end_tape_direction = -1
+	#else:
+		#end_tape_direction = 0
+		
 # 1. 選擇初始點：建立實例並固定位置
 func place_start_point(pos: Vector2):
 	current_tape = NinePatchRect.new()
@@ -68,12 +84,10 @@ func set_direction():
 		# 計算起點到目前滑鼠的角度
 		var angle = current_tape.position.angle_to_point(target_pos)
 		current_tape.rotation = angle
-		
-	#if GameManager.dir.length() > 0.01:
-		#current_tape.rotation = GameManager.dir.angle()
-	if canvas.current_dir.length() > 0.01:
-		current_tape.rotation = canvas.current_dir.angle()
-		hand_start.rotation = canvas.current_dir.angle()
+
+		if canvas.current_dir.length() > 0.01:
+			current_tape.rotation = canvas.current_dir.angle()
+			hand_start.rotation = canvas.current_dir.angle()
 	
 # 3. 選擇長度：固定方向，僅拉伸長度
 func set_length(target_pos: Vector2):
@@ -109,3 +123,9 @@ func clear_tape():
 	for tape in get_children():
 		if tape is NinePatchRect:
 			tape.queue_free()
+
+func clear_last_tape():
+	var c := get_child_count()
+	if c > 0:
+		if get_child(c - 1) is NinePatchRect:
+			get_child(c - 1).queue_free()
