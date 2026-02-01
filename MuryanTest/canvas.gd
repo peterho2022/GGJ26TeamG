@@ -174,8 +174,9 @@ func _make_tape_poly(a: Vector2, b: Vector2, half_w: float) -> PackedVector2Arra
 	if dir.length() < 0.001:
 		return PackedVector2Array()
 	dir = dir.normalized()
-	var n := Vector2(-dir.y, dir.x) * half_w
-	return PackedVector2Array([a + n, b + n, b - n, a - n])
+	var n := Vector2(-dir.y, dir.x) * (half_w)
+	var a_ext := a - dir * 50 # extend to left a litte bit
+	return PackedVector2Array([a_ext + n, b + n, b - n, a_ext - n])
 
 func _undo_last_tape() -> void:
 	var c := _mask_root.get_child_count()

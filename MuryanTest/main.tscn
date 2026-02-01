@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cp5dicwhyq2it" path="res://PutTapeOnTest/ShowHandTap.tscn" id="6_b0lwq"]
 [ext_resource type="Texture2D" uid="uid://cdoucm8stvkgd" path="res://Assets/tape-new.png" id="7_b0lwq"]
 [ext_resource type="Texture2D" uid="uid://u015dgtftkjx" path="res://Assets/level-1/1-2-mask.png" id="8_e007h"]
+[ext_resource type="Texture2D" uid="uid://bkygfu176vy05" path="res://Assets/tape-new_left_padding.png" id="9_3t7dj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
 shader = ExtResource("1_ig7tw")
@@ -55,6 +56,7 @@ canvas = NodePath("../Canvas")
 z_index = 4096
 tape_texture = ExtResource("7_b0lwq")
 canvas = NodePath("../../Canvas")
+tape_texture_left_padding = ExtResource("9_3t7dj")
 
 [node name="MaskVP" type="SubViewport" parent="." unique_id=853540378]
 size = Vector2i(1024, 1024)
