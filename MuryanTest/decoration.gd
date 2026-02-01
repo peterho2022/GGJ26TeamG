@@ -23,14 +23,23 @@ func _ready() -> void:
 		tape_is_finished = true
 		tape_manager.remove_hand_end()
 		tape_manager.hide_hand_start()
+		#var tween := create_tween()
+		#tween.set_ease(Tween.EASE_IN_OUT)
+		#tween.set_trans(Tween.TRANS_QUART)
+		#tween.tween_property(tape_manager.current_tape, "position:y", tape_manager.current_tape.position.y - tape_manager.tape_height/2.0 * tape_manager.end_tape_direction * 0.8, 0.3)
 		GameManager.tape_end(last_length)
 		)
 	canvas.commit_finished.connect(func():
 		tape_manager.clear_tape()
 		GameManager.commit_tape()
 		)
+	canvas.change_tape_size.connect(func(width):
+		tape_manager.tape_height = width
+	)
+	
 func _process(delta: float) -> void:
 	if GameManager.game_over:
 		return
 	if not tape_is_finished:
 		tape_manager.set_direction()
+	

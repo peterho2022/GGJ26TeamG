@@ -11,7 +11,9 @@ extends Node2D
 var current_tape: NinePatchRect = null
 var current_tape_left_padding: NinePatchRect = null
 var hand_anchor: Control = null
-var tape_height := 40
+var tape_height := 120: set = set_tape_height
+var temp_tape_height := 0
+var end_tape_direction := 0
 
 func _ready():
 	hand_start.visible = false
@@ -19,6 +21,20 @@ func _ready():
 	#HAND_END.visible = false
 	#current_tape.add_child(HAND_END)
 
+func set_tape_height(value):
+	temp_tape_height = tape_height
+	tape_height = value
+	if current_tape:
+		current_tape.size.y = tape_height
+		current_tape.pivot_offset = Vector2(0, tape_height / 2.0)
+	#var temp = tape_height - temp_tape_height
+	#if temp > 0:
+		#end_tape_direction = 1
+	#elif temp < 0:
+		#end_tape_direction = -1
+	#else:
+		#end_tape_direction = 0
+		
 # 1. 選擇初始點：建立實例並固定位置
 func place_start_point(pos: Vector2):
 	current_tape = NinePatchRect.new()
