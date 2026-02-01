@@ -9,13 +9,13 @@ func setup(final_rank, diff):
 	
 	# 1. 顯示數字
 	var final_score = GameManager.total_tape_length
-	score_label.text =  "最終膠帶使用量: %.2f m" % (final_score / 100.0)
+	score_label.text =  "%.2fcm Tape Used" % (final_score / 100.0 * 1.7)
 	
 	# 2. 顯示評價
 	print('diff = ', diff)
 	print('final_rank = ', final_rank)
 	# rank_label.text = "相似度: %s%%, 獲得評價: %s" % [str(int(diff * 100.0)), final_rank]
-	rank_label.text = "相似度: %s%%" % str(int(diff * 100.0))
+	rank_label.text = "%s%% Resemblance" % str(int(diff * 100.0))
 	
 	# (選用) 根據評價變色
 	"""if final_rank == "S":
