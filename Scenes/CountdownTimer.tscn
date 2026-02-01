@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cr1xd40m6c63g"]
 
 [ext_resource type="Script" uid="uid://c03hceb4dvp4h" path="res://Scenes/CountdownTimer.gd" id="1_h7yud"]
+[ext_resource type="FontFile" uid="uid://cy10jo6dn0wmo" path="res://Assets/JejuHallasan.ttf" id="2_dxfg3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h7yud"]
-font_size = 25
+font_size = 44
 outline_size = 2
 shadow_size = 5
 
@@ -18,5 +19,6 @@ target_label = NodePath("Label")
 layout_mode = 0
 offset_right = 115.0
 offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("2_dxfg3")
 text = "Time: 280"
 label_settings = SubResource("LabelSettings_h7yud")

@@ -13,6 +13,7 @@ var _running := false
 var _pause := false
 var _pause_start_time : float = 0.0
 var _pause_remaining : float = 0.0
+var red
 
 func _ready():
 	pass
@@ -34,6 +35,8 @@ func _process(_delta):
 		on_timeout.emit()
 		remaining = 0.0
 		_running = false
+	elif remaining <= 10.0:
+		target_label.modulate =Color("f77786ff")
 
 	target_label.text = prefix + str(int(ceil(remaining)))
 
