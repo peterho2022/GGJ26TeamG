@@ -49,6 +49,7 @@ offset_top = -440.0
 offset_right = 48.0
 offset_bottom = -440.0
 grow_vertical = 0
+script = null
 
 [node name="CountdownTimer" parent="CanvasLayer" unique_id=307437381 instance=ExtResource("3_lohlh")]
 offset_left = 45.0
