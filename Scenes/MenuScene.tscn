@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b7jtv6lmw8se4" path="res://Assets/ui/menu-bg.png" id="2_xx56i"]
 [ext_resource type="FontFile" uid="uid://cy10jo6dn0wmo" path="res://Assets/JejuHallasan.ttf" id="3_rae6p"]
 [ext_resource type="Texture2D" uid="uid://cdoucm8stvkgd" path="res://Assets/tape-new.png" id="4_vg0ck"]
+[ext_resource type="Texture2D" uid="uid://cwhuj6fw0ixe1" path="res://Assets/title-cropped.png" id="5_u7fmy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vg0ck"]
 texture = ExtResource("4_vg0ck")
@@ -73,10 +74,8 @@ texture_margin_bottom = 20.0
 script = ExtResource("1_36iol")
 
 [node name="Background" type="TextureRect" parent="." unique_id=892141284]
-offset_left = 2.0
-offset_top = 42.0
-offset_right = 1922.0
-offset_bottom = 1122.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 scale = Vector2(1, 0.998)
 texture = ExtResource("2_xx56i")
 
@@ -130,6 +129,13 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_dxffo")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dlm5w")
 theme_override_styles/hover = SubResource("StyleBoxTexture_0fiul")
 text = "Exit Game"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=129509038]
+offset_left = 119.0
+offset_top = 21.0
+offset_right = 798.0
+offset_bottom = 345.0
+texture = ExtResource("5_u7fmy")
 
 [connection signal="pressed" from="Background/VBoxContainer/Btn_Level1" to="." method="_on_btn_level_1_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/Btn_Level2" to="." method="_on_btn_level_2_pressed"]

@@ -92,7 +92,11 @@ func _input(event):
 			stop_timer()
 		if event.keycode == KEY_BRACKETRIGHT:
 			resume_timer()
-		
+		if event.keycode == KEY_O:
+			color_palette.prev_color()
+			canvas.current_color_index = max(canvas.current_color_index - 1, 0)
+			current_index = max(current_index - 1, 0)
+
 		# 取消（可選）：右鍵或 ESC 取消這次預覽
 		if event.is_action_pressed("ui_cancel"):
 			canvas._cancel_preview()
