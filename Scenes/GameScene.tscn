@@ -33,7 +33,7 @@ ComparsionVPRoot = NodePath("ComparsionVP/Node2D")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=410850020]
 z_index = -1000
-position = Vector2(965, 541)
+position = Vector2(960, 540)
 texture = ExtResource("11_cr6v8")
 
 [node name="CanvasLayer" parent="." unique_id=1475209388 instance=ExtResource("4_jwv4s")]
