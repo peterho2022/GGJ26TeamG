@@ -86,6 +86,10 @@ func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_P:
 			_on_timeout()
+		if event.keycode == KEY_BRACKETLEFT:
+			stop_timer()
+		if event.keycode == KEY_BRACKETRIGHT:
+			resume_timer()
 			
 func _on_tape_start():
 	AudioManager.play_sfx(AudioManager.SFX.TAPE_RIP)
@@ -182,3 +186,9 @@ func compare_images(a: Image, b: Image, threshold := 0.01) -> float:
 					diff += 1
 	print('raw diff = ', diff)
 	return 1.0 - float(diff) / total
+
+func stop_timer():
+	countdownTimer.pause()
+	
+func resume_timer():
+	countdownTimer.resume()

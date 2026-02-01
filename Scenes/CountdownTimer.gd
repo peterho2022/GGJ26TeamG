@@ -10,6 +10,9 @@ signal on_timeout
 
 var _end_time: float = 0.0
 var _running := false
+var _pause := false
+var _pause_start_time : float = 0.0
+var _pause_remaining : float = 0.0
 
 func _ready():
 	pass
@@ -22,6 +25,10 @@ func _process(_delta):
 	if not _running:
 		return
 
+	if _pause:
+		target_label.text = prefix + 'PAUSE'
+		return
+
 	var remaining := _end_time - Time.get_ticks_msec() / 1000.0
 	if remaining <= 0.0:
 		on_timeout.emit()
@@ -29,3 +36,12 @@ func _process(_delta):
 		_running = false
 
 	target_label.text = prefix + str(int(ceil(remaining)))
+
+func pause():
+	_pause = true
+	_pause_start_time = Time.get_ticks_msec() / 1000.0
+	_pause_remaining = _end_time - _pause_start_time
+	
+func resume():
+	_pause = false
+	_end_time = Time.get_ticks_msec() / 1000.0 + _pause_remaining
