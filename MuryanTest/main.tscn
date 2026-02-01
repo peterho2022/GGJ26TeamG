@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://cxrp1hy81eila" path="res://MuryanTest/decoration.gd" id="5_1aae8"]
 [ext_resource type="PackedScene" uid="uid://cp5dicwhyq2it" path="res://PutTapeOnTest/ShowHandTap.tscn" id="6_b0lwq"]
 [ext_resource type="Texture2D" uid="uid://cdoucm8stvkgd" path="res://Assets/tape-new.png" id="7_b0lwq"]
-[ext_resource type="Texture2D" uid="uid://u015dgtftkjx" path="res://Assets/level-1/1-2-mask.png" id="8_e007h"]
 [ext_resource type="Texture2D" uid="uid://bkygfu176vy05" path="res://Assets/tape-new_left_padding.png" id="9_3t7dj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
@@ -42,11 +41,6 @@ visible = false
 [node name="TapeOverlay" type="Sprite2D" parent="Canvas" unique_id=6612012]
 material = SubResource("ShaderMaterial_0xm2m")
 
-[node name="DefaultMask" type="Sprite2D" parent="Canvas" unique_id=1539029637]
-visible = false
-texture = ExtResource("8_e007h")
-centered = false
-
 [node name="Decoration" type="Node2D" parent="." unique_id=1745496807 node_paths=PackedStringArray("tape_manager", "canvas")]
 script = ExtResource("5_1aae8")
 tape_manager = NodePath("ShowHandTape")
@@ -63,8 +57,3 @@ size = Vector2i(1024, 1024)
 render_target_update_mode = 4
 
 [node name="MaskRoot" type="Node2D" parent="MaskVP" unique_id=151372882]
-
-[node name="DefaultMask" type="Sprite2D" parent="MaskVP/MaskRoot" unique_id=1054197666]
-visible = false
-texture = ExtResource("8_e007h")
-centered = false
