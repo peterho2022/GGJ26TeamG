@@ -24,6 +24,8 @@ extends Node2D
 @export var ComparsionVP : SubViewport
 @export var ComparsionVPRoot : Node2D
 
+@export var clear_tape_when_end : bool = true
+
 var canvas : Canvas
 var current_index = 0
 var showHandTap
@@ -131,6 +133,9 @@ func _on_commit_tape():
 		_show_end_scene()
 
 func _show_end_scene():
+	if clear_tape_when_end:
+		showHandTap.clear_tape()
+		showHandTap.hide_hand_start()
 	GameManager.game_over = true
 	countdownTimer.visible = false
 	var rank = calculate_rank()
@@ -140,8 +145,9 @@ func _show_end_scene():
 	await RenderingServer.frame_post_draw
 	var combined = ComparsionVP.get_texture().get_image()
 	var target = refImage.get_image()
-	combined.save_png("user://combined.png")
-	target.save_png("user://target.png")
+	if Engine.is_editor_hint():
+		combined.save_png("user://combined.png")
+		target.save_png("user://target.png")
 	var diff = compare_images(combined, target)
 	end_scene.setup(rank, diff)
 	end_scene.visible = true
