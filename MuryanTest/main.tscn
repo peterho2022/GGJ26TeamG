@@ -18,7 +18,7 @@ shader_parameter/tape_opacity = 0.85
 
 [node name="Canvas" type="Node2D" parent="." unique_id=1034967132]
 script = ExtResource("1_0xm2m")
-tape_color = Color(0.6648588, 1, 0.86760694, 1)
+tape_color = Color(1, 0.92156863, 0.54901963, 0)
 paper_bg_path = NodePath("PaperBackground")
 tape_width_px = 120.0
 max_len_px = 800.0
