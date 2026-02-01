@@ -11,7 +11,7 @@ extends Node2D
 var current_tape: NinePatchRect = null
 var current_tape_left_padding: NinePatchRect = null
 var hand_anchor: Control = null
-var tape_height := 120: set = set_tape_height
+var tape_height := 120
 var temp_tape_height := 0
 var end_tape_direction := 0
 
@@ -22,11 +22,17 @@ func _ready():
 	#current_tape.add_child(HAND_END)
 
 func set_tape_height(value):
-	temp_tape_height = tape_height
+	var prev = tape_height
 	tape_height = value
 	if current_tape:
 		current_tape.size.y = tape_height
-		current_tape.pivot_offset = Vector2(0, tape_height / 2.0)
+		# current_tape.pivot_offset = Vector2(0, tape_height / 2.0)
+		
+		var rot = current_tape.rotation
+		var right = Vector2(cos(rot), sin(rot))
+		var up = Vector2(-sin(rot), cos(rot))
+		current_tape.position = current_tape.position - up * (tape_height - prev) / 2
+	
 	#var temp = tape_height - temp_tape_height
 	#if temp > 0:
 		#end_tape_direction = 1
@@ -34,9 +40,9 @@ func set_tape_height(value):
 		#end_tape_direction = -1
 	#else:
 		#end_tape_direction = 0
-		
+
 # 1. 選擇初始點：建立實例並固定位置
-func place_start_point(pos: Vector2):
+func place_start_point(pos: Vector2, initPos : Vector2):
 	current_tape = NinePatchRect.new()
 	current_tape.texture = tape_texture
 	
@@ -60,7 +66,7 @@ func place_start_point(pos: Vector2):
 	var right = Vector2(cos(rot), sin(rot))
 	var up = Vector2(-sin(rot), cos(rot))
 	
-	current_tape.position = get_global_mouse_position() - up * tape_height / 2
+	current_tape.position = initPos - up * tape_height / 2
 	add_child(current_tape)
 	
 	current_tape_left_padding = NinePatchRect.new()
