@@ -68,3 +68,14 @@ func next_color():
 	print('next desire_rotate_angle = ', desire_rotate_angle)
 	print('next_id = ', next_id)
 	print('max_next_id = ', max_next_id)
+	
+func prev_color():
+	if next_id == 0:
+		print('reach end')
+		return
+	desire_rotate_angle -= deg_to_rad(rotate_angle)
+	next_id = (next_id - 1 + len(colors)) % len(colors)
+	brush.modulate = colors[next_id].modulate
+	print('next desire_rotate_angle = ', desire_rotate_angle)
+	print('next_id = ', next_id)
+	print('max_next_id = ', max_next_id)

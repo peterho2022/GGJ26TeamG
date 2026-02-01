@@ -1,11 +1,9 @@
 [gd_scene format=3 uid="uid://cqne4fbxwj7s1"]
 
-[ext_resource type="PackedScene" path="res://Scenes/ColorPalette.tscn" id="1_3mbwn"]
-[ext_resource type="Script" uid="uid://583fs8a7oadf" path="res://Scenes/GameSceneController.gd" id="1_kilg5"]
 [ext_resource type="PackedScene" uid="uid://usjhj47xc03v" path="res://Scenes/ColorPalette.tscn" id="1_3mbwn"]
 [ext_resource type="Script" uid="uid://583fs8a7oadf" path="res://Scenes/GameSceneController.gd" id="1_kilg5"]
 [ext_resource type="Texture2D" uid="uid://dgqjq341rysm8" path="res://Assets/level1.png" id="2_6vvcf"]
-[ext_resource type="PackedScene" uid="uid://yb7yjlml87ml" path="res://Scenes/HintText.tscn" id="2_jwv4s"]
+[ext_resource type="PackedScene" uid="uid://dngnru2h8nwxh" path="res://Scenes/HintText.tscn" id="2_jwv4s"]
 [ext_resource type="Texture2D" uid="uid://dwui0q6ke2sfm" path="res://Assets/level2.png" id="3_cr6v8"]
 [ext_resource type="PackedScene" uid="uid://cr1xd40m6c63g" path="res://Scenes/CountdownTimer.tscn" id="3_lohlh"]
 [ext_resource type="Texture2D" uid="uid://cedrmqtr8pd0e" path="res://Assets/level3.png" id="4_f43ej"]
