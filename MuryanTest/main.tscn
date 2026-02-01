@@ -21,13 +21,14 @@ script = ExtResource("1_0xm2m")
 tape_color = Color(1, 0.92156863, 0.54901963, 0)
 paper_bg_path = NodePath("PaperBackground")
 tape_width_px = 120.0
-max_len_px = 800.0
+max_len_px = 1200.0
 mask_vp_path = NodePath("../MaskVP")
 mask_root_path = NodePath("../MaskVP/MaskRoot")
 results_root_path = NodePath("ResultsRoot")
 tape_overlay_path = NodePath("TapeOverlay")
 tape_overlay_shader = ExtResource("1_ig7tw")
 paint_layer_shader = ExtResource("3_h2yge")
+length_cycles_per_sec = 1.0
 current_color_array = Array[Color]([Color(0.80829364, 0.6985646, 0, 1), Color(0.9929449, 0, 0.039394442, 1), Color(0, 0, 0, 1)])
 
 [node name="PaperBackground" type="Sprite2D" parent="Canvas" unique_id=1888206035]
