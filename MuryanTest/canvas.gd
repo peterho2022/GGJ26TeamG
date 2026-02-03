@@ -57,6 +57,9 @@ var current_color_index := 0
 var current_end_local: Vector2
 var current_dir := Vector2.ZERO
 
+@onready var mouse_tape_area: Area2D = $MouseTapeArea
+#var mouse_is_in_tape_area := false
+
 func _ready() -> void:
 	_mask_vp = get_node(mask_vp_path) as SubViewport
 	_mask_root = get_node(mask_root_path) as Node2D
@@ -150,13 +153,13 @@ func _input(event):
 func _unhandled_input(event: InputEvent) -> void:
 	if GameManager.game_over:
 		return
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if _state == PlaceState.IDLE:
-			start_tape.emit(get_global_mouse_position())
-			_begin_length_timing()
-		elif _state == PlaceState.LENGTH_TIMING:
-			_finalize_current_tape()
-			end_tape.emit()
+	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		#if _state == PlaceState.IDLE:
+			#start_tape.emit(get_global_mouse_position())
+			#_begin_length_timing()
+		#elif _state == PlaceState.LENGTH_TIMING:
+			#_finalize_current_tape()
+			#end_tape.emit()
 
 	# 上色確認：建議只允許在 IDLE（避免你還在跑長度時就 commit）
 	if event.is_action_pressed("commit_color"):
@@ -254,3 +257,27 @@ func _cancel_preview() -> void:
 	if _preview_poly != null:
 		_preview_poly.queue_free()
 		_preview_poly = null
+
+
+#func _on_mouse_tape_area_mouse_entered() -> void:
+	#mouse_is_in_tape_area = true
+#
+#
+#func _on_mouse_tape_area_mouse_exited() -> void:
+	#mouse_is_in_tape_area = false
+
+
+func _on_mouse_tape_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	#if event is InputEventScreenTouch and event.pressed:
+		## 這一刻就是「第一下按下」
+		#print("第一下按在 Area2D 內！ index=", event.index)
+
+	# 如果也要支援滑鼠測試
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		#print("滑鼠第一下按在 Area2D 內！")
+		if _state == PlaceState.IDLE:
+			start_tape.emit(get_global_mouse_position())
+			_begin_length_timing()
+		elif _state == PlaceState.LENGTH_TIMING:
+			_finalize_current_tape()
+			end_tape.emit()

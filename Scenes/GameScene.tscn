@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4fq0apfdhdvs"]
 
-[ext_resource type="PackedScene" path="res://Scenes/ColorPalette.tscn" id="1_3mbwn"]
+[ext_resource type="PackedScene" uid="uid://usjhj47xc03v" path="res://Scenes/ColorPalette.tscn" id="1_3mbwn"]
 [ext_resource type="Script" uid="uid://583fs8a7oadf" path="res://Scenes/GameSceneController.gd" id="1_kilg5"]
 [ext_resource type="Texture2D" uid="uid://dgqjq341rysm8" path="res://Assets/level1.png" id="2_6vvcf"]
 [ext_resource type="PackedScene" uid="uid://dngnru2h8nwxh" path="res://Scenes/HintText.tscn" id="2_jwv4s"]
@@ -18,6 +18,9 @@
 font_size = 60
 outline_size = 2
 shadow_size = 5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f43ej"]
+radius = 115.13
 
 [node name="GameScene" type="Node2D" unique_id=512451013 node_paths=PackedStringArray("countdownTimer", "color_palette", "end_scene", "main", "ReferenceImage", "ComparsionVP", "ComparsionVPRoot")]
 script = ExtResource("1_kilg5")
@@ -100,6 +103,12 @@ theme_override_fonts/font = ExtResource("12_f43ej")
 theme_override_font_sizes/font_size = 44
 text = "Target"
 label_settings = SubResource("LabelSettings_7rq2r")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer" unique_id=1009930945]
+z_index = 2000
+position = Vector2(1818, 976)
+shape = SubResource("CircleShape2D_f43ej")
+action = "commit_color"
 
 [node name="Main" parent="." unique_id=1294165700 instance=ExtResource("6_kilg5")]
 

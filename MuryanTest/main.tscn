@@ -14,6 +14,9 @@ shader = ExtResource("1_ig7tw")
 shader_parameter/tape_color = Color(1, 0.92, 0.55, 1)
 shader_parameter/tape_opacity = 0.85
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e007h"]
+size = Vector2(1190, 1158)
+
 [node name="Main" type="Node2D" unique_id=1294165700]
 
 [node name="Canvas" type="Node2D" parent="." unique_id=1034967132]
@@ -42,6 +45,12 @@ visible = false
 [node name="TapeOverlay" type="Sprite2D" parent="Canvas" unique_id=6612012]
 material = SubResource("ShaderMaterial_0xm2m")
 
+[node name="MouseTapeArea" type="Area2D" parent="Canvas" unique_id=1041675216]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canvas/MouseTapeArea" unique_id=1484221233]
+position = Vector2(512, 518)
+shape = SubResource("RectangleShape2D_e007h")
+
 [node name="Decoration" type="Node2D" parent="." unique_id=1745496807 node_paths=PackedStringArray("tape_manager", "canvas")]
 script = ExtResource("5_1aae8")
 tape_manager = NodePath("ShowHandTape")
@@ -58,3 +67,5 @@ size = Vector2i(1024, 1024)
 render_target_update_mode = 4
 
 [node name="MaskRoot" type="Node2D" parent="MaskVP" unique_id=151372882]
+
+[connection signal="input_event" from="Canvas/MouseTapeArea" to="Canvas" method="_on_mouse_tape_area_input_event"]
